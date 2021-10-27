@@ -16,12 +16,12 @@
   <meta name="description" content="一只小菜鸟的学习日志">
   <meta name="author" content="LiSoul">
   <meta name="keywords" content="lsoj,lisoul,LiSoul,LSOJ,renchenghui,Little-Soul,littlesoul">
-  <meta name="description" content="用户部分接口     请求地址 模块功能 地址    checktwopassword&#x2F; 用户密码验证 CheckTwoPasswords   login&#x2F; 用户登录 Login   register&#x2F; 用户注册 Register   perfectinfo&#x2F; 用户信息获取，修改，完善 PerfectInfo   changepassword&#x2F; 用户密码修改 PasswordModificati">
+  <meta name="description" content="用户部分接口     请求地址 模块功能 地址     checktwopassword&#x2F; 用户密码验证 CheckTwoPasswords   login&#x2F; 用户登录 Login   register&#x2F; 用户注册 Register   perfectinfo&#x2F; 用户信息获取，修改，完善 PerfectInfo   changepassword&#x2F; 用户密码修改 PasswordModificat">
 <meta property="og:type" content="website">
 <meta property="og:title" content="用户管理接口信息">
 <meta property="og:url" content="https://little-soul.github.io/tags/%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E6%8E%A5%E5%8F%A3%E4%BF%A1%E6%81%AF">
 <meta property="og:site_name" content="LiSoul">
-<meta property="og:description" content="用户部分接口     请求地址 模块功能 地址    checktwopassword&#x2F; 用户密码验证 CheckTwoPasswords   login&#x2F; 用户登录 Login   register&#x2F; 用户注册 Register   perfectinfo&#x2F; 用户信息获取，修改，完善 PerfectInfo   changepassword&#x2F; 用户密码修改 PasswordModificati">
+<meta property="og:description" content="用户部分接口     请求地址 模块功能 地址     checktwopassword&#x2F; 用户密码验证 CheckTwoPasswords   login&#x2F; 用户登录 Login   register&#x2F; 用户注册 Register   perfectinfo&#x2F; 用户信息获取，修改，完善 PerfectInfo   changepassword&#x2F; 用户密码修改 PasswordModificat">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-10-10T00:00:00.000Z">
 <meta property="article:modified_time" content="2021-10-26T07:52:39.421Z">
@@ -73,6 +73,13 @@
 
 <!-- 自定义样式保持在最底部 -->
 
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/toubudaziji.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/daziyanse.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/gundongtiao.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/shubiao.css">
+
+
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
@@ -80,7 +87,11 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<!-- hexo injector head_end start --><script src='/js/FunnyTitle.js'></script><script src='/live2d-widget/autoload.js'></script><link rel="stylesheet" href='/css/mouse.css'><link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css'>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<script src='/js/FunnyTitle.js'></script><script src='/live2d-widget/autoload.js'></script><link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css'>
   <link rel='stylesheet' href='/css/live2d.css'><script src='/js/WaifuMove.js'></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
 
 
@@ -218,85 +229,86 @@
 <table>
 <thead>
 <tr>
-<th align="center">请求地址</th>
-<th align="center">模块功能</th>
-<th align="center">地址</th>
+<th style="text-align:center">请求地址</th>
+<th style="text-align:center">模块功能</th>
+<th style="text-align:center">地址</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center"><code>checktwopassword/</code></td>
-<td align="center">用户密码验证</td>
-<td align="center"><a href="#CheckTwoPasswords">CheckTwoPasswords</a></td>
+<tbody>
+<tr>
+<td style="text-align:center"><code>checktwopassword/</code></td>
+<td style="text-align:center">用户密码验证</td>
+<td style="text-align:center"><a href="#CheckTwoPasswords">CheckTwoPasswords</a></td>
 </tr>
 <tr>
-<td align="center"><code>login/</code></td>
-<td align="center">用户登录</td>
-<td align="center"><a href="#Login">Login</a></td>
+<td style="text-align:center"><code>login/</code></td>
+<td style="text-align:center">用户登录</td>
+<td style="text-align:center"><a href="#Login">Login</a></td>
 </tr>
 <tr>
-<td align="center"><code>register/</code></td>
-<td align="center">用户注册</td>
-<td align="center"><a href="#Register">Register</a></td>
+<td style="text-align:center"><code>register/</code></td>
+<td style="text-align:center">用户注册</td>
+<td style="text-align:center"><a href="#Register">Register</a></td>
 </tr>
 <tr>
-<td align="center"><code>perfectinfo/</code></td>
-<td align="center">用户信息获取，修改，完善</td>
-<td align="center"><a href="#PerfectInfo">PerfectInfo</a></td>
+<td style="text-align:center"><code>perfectinfo/</code></td>
+<td style="text-align:center">用户信息获取，修改，完善</td>
+<td style="text-align:center"><a href="#PerfectInfo">PerfectInfo</a></td>
 </tr>
 <tr>
-<td align="center"><code>changepassword/</code></td>
-<td align="center">用户密码修改</td>
-<td align="center"><a href="#PasswordModification">PasswordModification</a></td>
+<td style="text-align:center"><code>changepassword/</code></td>
+<td style="text-align:center">用户密码修改</td>
+<td style="text-align:center"><a href="#PasswordModification">PasswordModification</a></td>
 </tr>
 <tr>
-<td align="center"><code>sendemail/</code></td>
-<td align="center">邮件发送，绑定</td>
-<td align="center"><a href="#SendEmail">SendEmail</a></td>
+<td style="text-align:center"><code>sendemail/</code></td>
+<td style="text-align:center">邮件发送，绑定</td>
+<td style="text-align:center"><a href="#SendEmail">SendEmail</a></td>
 </tr>
 <tr>
-<td align="center"><code>forgetpassword/</code></td>
-<td align="center">忘记密码</td>
-<td align="center"><a href="#ForgetPassword">ForgetPassword</a></td>
+<td style="text-align:center"><code>forgetpassword/</code></td>
+<td style="text-align:center">忘记密码</td>
+<td style="text-align:center"><a href="#ForgetPassword">ForgetPassword</a></td>
 </tr>
 <tr>
-<td align="center"><code>getuserstatus/</code></td>
-<td align="center">用户个人状态</td>
-<td align="center"><a href="#GetUserStatus">GetUserStatus</a></td>
+<td style="text-align:center"><code>getuserstatus/</code></td>
+<td style="text-align:center">用户个人状态</td>
+<td style="text-align:center"><a href="#GetUserStatus">GetUserStatus</a></td>
 </tr>
 <tr>
-<td align="center"><code>getranklist/</code></td>
-<td align="center">用户排名</td>
-<td align="center"><a href="#GetRankList">GetRankList</a></td>
+<td style="text-align:center"><code>getranklist/</code></td>
+<td style="text-align:center">用户排名</td>
+<td style="text-align:center"><a href="#GetRankList">GetRankList</a></td>
 </tr>
 <tr>
-<td align="center"><code>getusertokeninfo/</code></td>
-<td align="center">获取用户token信息</td>
-<td align="center"><a href="#GetUserTokenInfo">GetUserTokenInfo</a></td>
+<td style="text-align:center"><code>getusertokeninfo/</code></td>
+<td style="text-align:center">获取用户token信息</td>
+<td style="text-align:center"><a href="#GetUserTokenInfo">GetUserTokenInfo</a></td>
 </tr>
 <tr>
-<td align="center"><code>getuserlist/</code></td>
-<td align="center">用户列表</td>
-<td align="center"><a href="#GetUserList">GetUserList</a></td>
+<td style="text-align:center"><code>getuserlist/</code></td>
+<td style="text-align:center">用户列表</td>
+<td style="text-align:center"><a href="#GetUserList">GetUserList</a></td>
 </tr>
 <tr>
-<td align="center"><code>changeusercapacity/</code></td>
-<td align="center">修改用户权限</td>
-<td align="center"><a href="#ChangeUserCapacity">ChangeUserCapacity</a></td>
+<td style="text-align:center"><code>changeusercapacity/</code></td>
+<td style="text-align:center">修改用户权限</td>
+<td style="text-align:center"><a href="#ChangeUserCapacity">ChangeUserCapacity</a></td>
 </tr>
 <tr>
-<td align="center"><code>resettinguserpassword/</code></td>
-<td align="center">重置用户密码</td>
-<td align="center"><a href="#ResettingUserPassword">ResettingUserPassword</a></td>
+<td style="text-align:center"><code>resettinguserpassword/</code></td>
+<td style="text-align:center">重置用户密码</td>
+<td style="text-align:center"><a href="#ResettingUserPassword">ResettingUserPassword</a></td>
 </tr>
 <tr>
-<td align="center"><code>getusericon/</code></td>
-<td align="center">用户头像获取</td>
-<td align="center"><a href="#GetUserIcon">GetUserIcon</a></td>
+<td style="text-align:center"><code>getusericon/</code></td>
+<td style="text-align:center">用户头像获取</td>
+<td style="text-align:center"><a href="#GetUserIcon">GetUserIcon</a></td>
 </tr>
-</tbody></table>
-<hr>
+</tbody>
+</table>
+<hr />
 <h6 id="CheckTwoPasswords"> class CheckTwoPasswords(View): </h6>
-
  <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">模块: 密码验证
     接口信息:
         GET:
@@ -310,9 +322,7 @@
         POST:
             status: 验证状态[True|False](boolean)
             err: 提示信息<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
-
 <h6 id="Login"> class Login(View): </h6>
-
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">模块: 用户登录
     接口信息:
         GET:
@@ -328,9 +338,7 @@
             status: 验证状态[True|False](boolean)
             err: 提示信息
             token: 登陆成功时的token<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
-
 <h6 id="Register"> class Register(View):</h6>
-
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">模块: 用户注册
     接口信息:
         GET:
@@ -346,9 +354,7 @@
         POST:
             status: 验证状态[True|False](boolean)
             err: 提示信息<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
-
 <h6 id="PerfectInfo"> class PerfectInfo(View):</h6>
-
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">模块: 用户信息获取，修改，完善
     接口信息:
         GET:
@@ -372,9 +378,7 @@
         POST:
             status: 验证状态[True|False](boolean)
             err: 提示信息<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
-
 <h6 id="PasswordModification"> class PasswordModification(View):</h6>
-
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">模块: 密码修改
     接口信息:
         GET:
@@ -391,9 +395,7 @@
         POST:
             status: 请求状态[True|False](boolean)
             err: 提示信息<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
-
 <h6 id="SendEmail"> class SendEmail(View):</h6>
-
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">模块: 邮件发送,认证
     接口信息:
         GET:
@@ -412,9 +414,7 @@
         POST:
             status: 验证状态[True|False](boolean)
             err: 提示信息<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
-
 <h6 id="ForgetPassword"> class ForgetPassword(View):</h6>
-
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">模块: 忘记密码
     接口信息:
         GET:
@@ -430,9 +430,7 @@
         POST:
             status: 验证状态[True|False](boolean)
             err: 提示信息<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
-
 <h6 id="GetUserStatus"> class GetUserStatus(View):</h6>
-
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">模块: 获取用户状态
     接口信息:
         GET:
@@ -455,9 +453,7 @@
             date_data: 时间数据（数据表使用）
         POST:
             None<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
-
 <h6 id="GetRankList"> class GetRankList(View):</h6>
-
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">模块: 获取用户排名列表
     接口信息:
         GET:
@@ -470,9 +466,7 @@
             data2: 用户排名列表（数据表使用）
         POST:
             data: 筛选后的用户排名列表<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
-
 <h6 id="GetUserTokenInfo"> class GetUserTokenInfo(View):</h6>
-
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">模块: 获取用户权限信息
     接口信息:
         GET:
@@ -484,11 +478,7 @@
             用户token所包含信息
         POST:
             None<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
-
-
-
 <h6 id="GetUserList"> class GetUserList(View):</h6>
-
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">模块: 获取用户信息列表
     接口信息:
         GET:
@@ -500,9 +490,7 @@
             data: 所有的用户列表
         POST:
             data: 筛选后的用户里列表<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
-
 <h6 id="ChangeUserCapacity"> class ChangeUserCapacity(View):</h6>
-
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">模块: 修改用户权限
     接口信息:
         GET:
@@ -517,9 +505,7 @@
         POST:
             status: 数据操作状态
             err: 提示信息<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
-
 <h6 id="ResettingUserPassword"> class ResettingUserPassword(View):</h6>
-
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">模块: 重置用户密码
     接口信息:
         GET:
@@ -534,10 +520,7 @@
         POST:
             status: 数据操作状态
             err: 提示信息<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
-
-
 <h6 id="GetUserIcon"> class GetUserIcon(View):</h6>
-
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">模块: 用户头像获取
     接口信息:
         GET:
@@ -733,6 +716,13 @@
   
 
 
+
+
+  
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/caidai.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/timeDate.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/yinghua.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/love.js"></script>
 
 
 

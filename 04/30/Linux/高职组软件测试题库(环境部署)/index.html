@@ -16,12 +16,12 @@
   <meta name="description" content="一只小菜鸟的学习日志">
   <meta name="author" content="Little-Soul">
   <meta name="keywords" content="lsoj,lisoul,LiSoul,LSOJ,renchenghui,Little-Soul,littlesoul">
-  <meta name="description" content="一. 任务概述 本部分按照环境搭建及系统部署要求文档，完成 CentOS、JDK、MySQL、Tomcat 等测试环境搭建与配置，并安装与部署应用系统，并最终能通过浏览器成功访问系统，过程与结果需截图。截图需粘贴在环境搭建及系统部署报告中。  二. 题目要求 个人使用最新版的 VirtualBox6.1.22, CenterOS7, Openjdk16.0.1, mysql8.0.24, Tom">
+  <meta name="description" content="一. 任务概述  本部分按照环境搭建及系统部署要求文档，完成 CentOS、JDK、MySQL、Tomcat 等测试环境搭建与配置，并安装与部署应用系统，并最终能通过浏览器成功访问系统，过程与结果需截图。截图需粘贴在环境搭建及系统部署报告中。   二. 题目要求  个人使用最新版的 VirtualBox6.1.22, CenterOS7, Openjdk16.0.1, mysql8.0.24,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="高职组软件测试赛题库(环境部署)">
 <meta property="og:url" content="https://little-soul.github.io/04/30/Linux/%E9%AB%98%E8%81%8C%E7%BB%84%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E9%A2%98%E5%BA%93(%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2)/">
 <meta property="og:site_name" content="LiSoul">
-<meta property="og:description" content="一. 任务概述 本部分按照环境搭建及系统部署要求文档，完成 CentOS、JDK、MySQL、Tomcat 等测试环境搭建与配置，并安装与部署应用系统，并最终能通过浏览器成功访问系统，过程与结果需截图。截图需粘贴在环境搭建及系统部署报告中。  二. 题目要求 个人使用最新版的 VirtualBox6.1.22, CenterOS7, Openjdk16.0.1, mysql8.0.24, Tom">
+<meta property="og:description" content="一. 任务概述  本部分按照环境搭建及系统部署要求文档，完成 CentOS、JDK、MySQL、Tomcat 等测试环境搭建与配置，并安装与部署应用系统，并最终能通过浏览器成功访问系统，过程与结果需截图。截图需粘贴在环境搭建及系统部署报告中。   二. 题目要求  个人使用最新版的 VirtualBox6.1.22, CenterOS7, Openjdk16.0.1, mysql8.0.24,">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://little-soul.github.io/image/page_image/20210403/1.png">
 <meta property="og:image" content="https://little-soul.github.io/image/page_image/20210403/2.png">
@@ -83,6 +83,13 @@
 
 <!-- 自定义样式保持在最底部 -->
 
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/toubudaziji.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/daziyanse.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/gundongtiao.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/shubiao.css">
+
+
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
@@ -90,7 +97,11 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<!-- hexo injector head_end start --><script src='/js/FunnyTitle.js'></script><script src='/live2d-widget/autoload.js'></script><link rel="stylesheet" href='/css/mouse.css'><link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css'>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<script src='/js/FunnyTitle.js'></script><script src='/live2d-widget/autoload.js'></script><link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css'>
   <link rel='stylesheet' href='/css/live2d.css'><script src='/js/WaifuMove.js'></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
 
 
@@ -273,126 +284,145 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：28 分钟前
+                  本文最后更新于：4 小时前
                 
               </p>
             
             <div class="markdown-body">
-              <hr>
-<h2 id="一-任务概述"><a href="#一-任务概述" class="headerlink" title="一. 任务概述"></a>一. 任务概述</h2><blockquote>
+              <hr />
+<h2 id="一-任务概述"><a class="markdownIt-Anchor" href="#一-任务概述"></a> 一. 任务概述</h2>
+<blockquote>
 <p>本部分按照环境搭建及系统部署要求文档，完成 CentOS、JDK、MySQL、Tomcat 等测试环境搭建与配置，并安装与部署应用系统，并最终能通过浏览器成功访问系统，过程与结果需截图。截图需粘贴在环境搭建及系统部署报告中。</p>
 </blockquote>
-<h2 id="二-题目要求"><a href="#二-题目要求" class="headerlink" title="二. 题目要求"></a>二. 题目要求</h2><blockquote>
-<p>个人使用最新版的 VirtualBox6.1.22, CenterOS7, Openjdk16.0.1, mysql8.0.24, Tomcat10.0.5<br>文件下载:</p>
+<h2 id="二-题目要求"><a class="markdownIt-Anchor" href="#二-题目要求"></a> 二. 题目要求</h2>
+<blockquote>
+<p>个人使用最新版的 VirtualBox6.1.22, CenterOS7, Openjdk16.0.1, mysql8.0.24, Tomcat10.0.5<br />
+文件下载:</p>
 </blockquote>
 <ul>
-<li><p>Linux 知识普及</p>
+<li>
+<p>Linux 知识普及</p>
 <blockquote>
 <p>ssh 连接: <code>ssh root@(虚拟机ip地址)</code></p>
 <ul>
 <li>样例</li>
 </ul>
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">ssh root@192.168.0.2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
 <p>scp 文件传输: <code>scp (本地文件地址) root@(虚拟机ip地址):(虚拟机文件位置)</code></p>
 <ul>
 <li>样例</li>
 </ul>
-<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">scp openjdk.tar.gz root@192.168.0.2:~&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></blockquote>
+<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">scp openjdk.tar.gz root@192.168.0.2:~&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+</blockquote>
 </li>
-<li><h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4></li>
+<li>
+<h4 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h4>
+</li>
 </ul>
-<h5 id="1-安装-CentOS-7"><a href="#1-安装-CentOS-7" class="headerlink" title="1. 安装 CentOS 7"></a>1. 安装 CentOS 7</h5><blockquote>
+<h5 id="1-安装-centos-7"><a class="markdownIt-Anchor" href="#1-安装-centos-7"></a> 1. 安装 CentOS 7</h5>
+<blockquote>
 <p>使用 VirtualBox 和提供的 ISO 文件安装 CentOS 7，安装成功后，使用命令行界面操作系统。</p>
 </blockquote>
 <ul>
 <li>截图要求：一共 2 张图：① 安装过程中，设置 root 账号密码界面截图；② 安装成功后，root 账号登录系统截图。</li>
 </ul>
-<hr>
+<hr />
 <ul>
-<li><h6 id="部署过程"><a href="#部署过程" class="headerlink" title="部署过程"></a>部署过程</h6></li>
+<li>
+<h6 id="部署过程"><a class="markdownIt-Anchor" href="#部署过程"></a> 部署过程</h6>
+</li>
 </ul>
 <ol>
-<li>新建虚拟机<br>根据图片配置虚拟机<br><img src="/image/page_image/20210403/1.png" srcset="/img/loading.gif" lazyload><br><img src="/image/page_image/20210403/2.png" srcset="/img/loading.gif" lazyload><br><img src="/image/page_image/20210403/3.png" srcset="/img/loading.gif" lazyload></li>
+<li>新建虚拟机<br />
+根据图片配置虚拟机<br />
+<img src="/image/page_image/20210403/1.png" srcset="/img/loading.gif" lazyload alt="" /><br />
+<img src="/image/page_image/20210403/2.png" srcset="/img/loading.gif" lazyload alt="" /><br />
+<img src="/image/page_image/20210403/3.png" srcset="/img/loading.gif" lazyload alt="" /></li>
 </ol>
 <ul>
-<li>根据下图添加本地文件夹中的 ios 镜像文件<br><img src="/image/page_image/20210403/4.png" srcset="/img/loading.gif" lazyload></li>
-<li>设置网卡 1<br><img src="/image/page_image/20210403/5_1.png" srcset="/img/loading.gif" lazyload></li>
-<li>选择箭头所指<br><img src="/image/page_image/20210403/7.png" srcset="/img/loading.gif" lazyload></li>
-<li>磁盘配置以及网络设置<br><img src="/image/page_image/20210403/8.png" srcset="/img/loading.gif" lazyload></li>
-<li>设置 root 密码<br><img src="/image/page_image/20210403/10.png" srcset="/img/loading.gif" lazyload></li>
-<li>安装完之后重启并设置网卡 2<br><img src="/image/page_image/20210403/5_2.png" srcset="/img/loading.gif" lazyload></li>
+<li>根据下图添加本地文件夹中的 ios 镜像文件<br />
+<img src="/image/page_image/20210403/4.png" srcset="/img/loading.gif" lazyload alt="" /></li>
+<li>设置网卡 1<br />
+<img src="/image/page_image/20210403/5_1.png" srcset="/img/loading.gif" lazyload alt="" /></li>
+<li>选择箭头所指<br />
+<img src="/image/page_image/20210403/7.png" srcset="/img/loading.gif" lazyload alt="" /></li>
+<li>磁盘配置以及网络设置<br />
+<img src="/image/page_image/20210403/8.png" srcset="/img/loading.gif" lazyload alt="" /></li>
+<li>设置 root 密码<br />
+<img src="/image/page_image/20210403/10.png" srcset="/img/loading.gif" lazyload alt="" /></li>
+<li>安装完之后重启并设置网卡 2<br />
+<img src="/image/page_image/20210403/5_2.png" srcset="/img/loading.gif" lazyload alt="" /></li>
 <li>开机查看 IP 地址</li>
 </ul>
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">ip a<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
 <blockquote>
-<p>设置 2. 检查网络连接<br>打开主机 CMD 检查与虚拟机的连通</p>
+<p>设置 2. 检查网络连接<br />
+打开主机 CMD 检查与虚拟机的连通</p>
 </blockquote>
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">ping (虚拟机ip地址)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
 <ol>
-<li>SSH 连接虚拟机<br>在主电脑 CMD 输入</li>
+<li>SSH 连接虚拟机<br />
+在主电脑 CMD 输入</li>
 </ol>
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">ssh root@(虚拟机ip)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
-<h5 id="2-安装配置-JDK"><a href="#2-安装配置-JDK" class="headerlink" title="2. 安装配置 JDK"></a>2. 安装配置 JDK</h5><blockquote>
+<h5 id="2-安装配置-jdk"><a class="markdownIt-Anchor" href="#2-安装配置-jdk"></a> 2. 安装配置 JDK</h5>
+<blockquote>
 <p>在 CentOS 系统中，使用提供的 JDK 安装包，安装 JDK。</p>
 </blockquote>
 <ul>
 <li>截图要求：一共 2 张图，分别为：① 截取 JDK 环境变量配置截图；②JDK 安装成功后，截取使用命令查看 JDK 版本信息截图。</li>
 </ul>
-<hr>
+<hr />
 <ul>
-<li><h6 id="部署过程-1"><a href="#部署过程-1" class="headerlink" title="部署过程"></a>部署过程</h6><blockquote>
+<li>
+<h6 id="部署过程-2"><a class="markdownIt-Anchor" href="#部署过程-2"></a> 部署过程</h6>
+<blockquote>
 <ol>
 <li>传输文件到 CenterOS 系统</li>
 </ol>
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">scp openjdk-16.0.1_linux-x64_bin.tar.gz root@192.168.56.103:~&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
 <ol start="2">
 <li>解压文件</li>
 </ol>
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">tar -zxvf openjdk-16.0.1_linux-x64_bin.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
 <ol start="3">
 <li>移动文件</li>
 </ol>
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">mv jdk-16.0.1 &#x2F;usr&#x2F;local&#x2F;jdk-16.0.1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
 <ol start="4">
 <li>添加环境变量</li>
 </ol>
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">vi &#x2F;etc&#x2F;profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
 <p>在文件末尾写入</p>
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none"># openjdk16.0.1
 export JAVA_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;jdk-16.0.1
 export JRE_HOME&#x3D;$&#123;JAVA_HOME&#125;
 export CLASSPATH&#x3D;.:$&#123;JAVA_PATH&#125;&#x2F;lib:$&#123;JAVA_HOME&#125;&#x2F;lib
 export PATH&#x3D;$&#123;JAVA_HOME&#125;&#x2F;bin:$PATH<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
-
 <p>按<code>:wq</code>保存退出</p>
 <ul>
 <li>激活环境变量使配置生效</li>
 </ul>
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">source &#x2F;etc&#x2F;profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
 <ol start="5">
 <li>检查环境是否部署成功</li>
 </ol>
-<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">java -version<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></blockquote>
+<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">java -version<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+</blockquote>
 </li>
 </ul>
-<h5 id="3-安装配置-MySQL"><a href="#3-安装配置-MySQL" class="headerlink" title="3. 安装配置 MySQL"></a>3. 安装配置 MySQL</h5><blockquote>
+<h5 id="3-安装配置-mysql"><a class="markdownIt-Anchor" href="#3-安装配置-mysql"></a> 3. 安装配置 MySQL</h5>
+<blockquote>
 <p>在 CentOS 系统中，使用提供的 MySQL 安装包，安装 MySQL。</p>
 </blockquote>
 <ul>
 <li>截图要求：一共 3 张图：① 截取 MySQL 配置文件截图；② 截取 root 账号成功登录 MySQL 截图；③ 截取使用 suthr.sql 初始化人力资源综合服务系统数据库命令截图。</li>
 </ul>
-<hr>
+<hr />
 <ul>
-<li><h6 id="部署过程-2"><a href="#部署过程-2" class="headerlink" title="部署过程"></a>部署过程</h6><blockquote>
+<li>
+<h6 id="部署过程-3"><a class="markdownIt-Anchor" href="#部署过程-3"></a> 部署过程</h6>
+<blockquote>
 <ol>
 <li>传输文件到 CenterOS 系统</li>
 </ol>
@@ -401,66 +431,54 @@ export PATH&#x3D;$&#123;JAVA_HOME&#125;&#x2F;bin:$PATH<span aria-hidden="true" c
 </ul>
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">rpm -qa|grep mariadb
 rpm -e --nodeps mariadb-libs-5.5.68-1.el7.x86_64<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
-
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">scp mysql-8.0.24-linux-glibc2.12-x86_64.tar.xz root@192.168.56.103:~&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
 <ol start="2">
 <li>解压文件</li>
 </ol>
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">tar -xvf mysql-8.0.24-linux-glibc2.12-x86_64.tar.xz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
 <ol start="3">
 <li>移动文件</li>
 </ol>
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">mv mysql-8.0.24-linux-glibc2.12-x86_64 &#x2F;usr&#x2F;local&#x2F;mysql<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
 <ol start="4">
 <li>创建 mysql 用户</li>
 </ol>
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">groupadd mysql
 useradd -g mysql mysql<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
-
 <ol start="5">
 <li>更改目录权限</li>
 </ol>
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">chown -R mysql:mysql &#x2F;usr&#x2F;local&#x2F;mysql
 chmod -R 777 &#x2F;usr&#x2F;local&#x2F;mysql<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
-
 <ol start="6">
-<li>初始化 mysql<br>切换到 mysql 的 bin 目录下</li>
+<li>初始化 mysql<br />
+切换到 mysql 的 bin 目录下</li>
 </ol>
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">cd &#x2F;usr&#x2F;local&#x2F;mysql&#x2F;bin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
 <p>执行 mysql 初始化命令</p>
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">.&#x2F;mysqld --initialize<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
 <ol start="7">
 <li>设置环境变量</li>
 </ol>
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">vi &#x2F;etc&#x2F;profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
 <p>在文件末尾写入</p>
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none"># mysql8.0.24
 export MYSQL_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;mysql&#x2F;bin
 export PATH&#x3D;$PATH:$MYSQL_HOME<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div>
-
 <p>按<code>:wq</code>保存退出</p>
 <ul>
 <li>激活环境变量使配置生效</li>
 </ul>
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">source &#x2F;etc&#x2F;profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
 <ol start="8">
 <li>添加开机自启动</li>
 </ol>
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">ln -s &#x2F;usr&#x2F;local&#x2F;mysql&#x2F;support-files&#x2F;mysql.server &#x2F;etc&#x2F;init.d&#x2F;mysql
 ln -s &#x2F;usr&#x2F;local&#x2F;mysql&#x2F;bin&#x2F;mysql &#x2F;usr&#x2F;bin&#x2F;mysql<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
-
 <ol start="9">
 <li>启动 mysql 服务</li>
 </ol>
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">service mysql start<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
 <ul>
 <li>注：若启动失败请再执行一次<kbd>chmod -R 777 /usr/local/mysql</kbd></li>
 </ul>
@@ -468,20 +486,17 @@ ln -s &#x2F;usr&#x2F;local&#x2F;mysql&#x2F;bin&#x2F;mysql &#x2F;usr&#x2F;bin&#x2
 <li>登陆 mysql</li>
 </ol>
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">mysql -u root -p<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
 <ol start="11">
 <li>修改密码</li>
 </ol>
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">ALTER USER &quot;root&quot;@&quot;localhost&quot; IDENTIFIED BY &quot;password&quot;;
 FLUSH PRIVILEGES;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
-
 <ol start="12">
 <li>修改公网访问</li>
 </ol>
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">use mysql;
 update user set host&#x3D;&#39;%&#39; where user&#x3D;&#39;root&#39;;
 FLUSH PRIVILEGES;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div>
-
 <ol start="13">
 <li>设置防火墙</li>
 </ol>
@@ -494,65 +509,67 @@ systemctl enable firewalld
 # 设置3306为永久开发
 firewall-cmd --add-port&#x3D;3306&#x2F;tcp --permanent
 # 重启生效
-firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></blockquote>
+firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+</blockquote>
 </li>
 </ul>
-<h5 id="4-安装配置-Tomcat"><a href="#4-安装配置-Tomcat" class="headerlink" title="4. 安装配置 Tomcat"></a>4. 安装配置 Tomcat</h5><blockquote>
+<h5 id="4-安装配置-tomcat"><a class="markdownIt-Anchor" href="#4-安装配置-tomcat"></a> 4. 安装配置 Tomcat</h5>
+<blockquote>
 <p>在 CentOS 系统中，使用提供的 Tomcat 安装包，安装 Tomcat。</p>
 </blockquote>
 <ul>
 <li>截图要求：一共 2 张图：①Tomcat 安装成功后，截取启动 Tomcat 服务命令截图；②Tomcat 安装成功后，截取通过浏览器访问 Tomcat 主页截图。</li>
 </ul>
-<hr>
+<hr />
 <ul>
-<li><h6 id="部署过程-3"><a href="#部署过程-3" class="headerlink" title="部署过程"></a>部署过程</h6><blockquote>
+<li>
+<h6 id="部署过程-4"><a class="markdownIt-Anchor" href="#部署过程-4"></a> 部署过程</h6>
+<blockquote>
 <ol>
 <li>传输文件到 CenterOS 系统</li>
 </ol>
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">scp apache-tomcat-10.0.5.tar.gz root@192.168.56.103:~&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
 <ol start="2">
 <li>解压文件</li>
 </ol>
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">tar -zxvf apache-tomcat-10.0.5.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
 <ol start="3">
 <li>移动文件</li>
 </ol>
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">mv apache-tomcat-10.0.5&#x2F; &#x2F;usr&#x2F;local&#x2F;tomcat<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
 <ol start="4">
 <li>执行 Tomcat 脚本启动 tomcat</li>
 </ol>
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">&#x2F;usr&#x2F;local&#x2F;tomcat&#x2F;bin&#x2F;startup.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
 <ol start="5">
 <li>查看 Tomcat 监听的端口</li>
 </ol>
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">netstat -ltnp |grep java<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
 <ol start="6">
 <li>关闭防火墙</li>
 </ol>
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">systemctl stop firewalld.service<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
 <ul>
 <li>网页访问虚拟机 ip 查看 tomcat 服务</li>
 </ul>
 </blockquote>
 </li>
 </ul>
-<h5 id="5-系统应用部署"><a href="#5-系统应用部署" class="headerlink" title="5. 系统应用部署"></a>5. 系统应用部署</h5><blockquote>
+<h5 id="5-系统应用部署"><a class="markdownIt-Anchor" href="#5-系统应用部署"></a> 5. 系统应用部署</h5>
+<blockquote>
 <p>将 suthr.war 包部署到 Tomcat。</p>
 </blockquote>
 <ul>
 <li>截图要求：一共 2 张图，分别为：① 项目部署成功后，截取 webapps 目录截图；② 项目部署成功后，截取通过浏览器访问人力资源综合服务系统登录页截图。</li>
 </ul>
-<hr>
+<hr />
 <ul>
-<li><h6 id="部署过程-4"><a href="#部署过程-4" class="headerlink" title="部署过程"></a>部署过程</h6></li>
+<li>
+<h6 id="部署过程-5"><a class="markdownIt-Anchor" href="#部署过程-5"></a> 部署过程</h6>
+</li>
 </ul>
-<h2 id="三-技术参数选取范围"><a href="#三-技术参数选取范围" class="headerlink" title="三. 技术参数选取范围"></a>三. 技术参数选取范围</h2><blockquote>
+<h2 id="三-技术参数选取范围"><a class="markdownIt-Anchor" href="#三-技术参数选取范围"></a> 三. 技术参数选取范围</h2>
+<blockquote>
 <p>无</p>
 </blockquote>
 
@@ -583,9 +600,9 @@ firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/10/10/Python/Django/%E7%BC%96%E5%86%99%E7%AC%AC%E4%B8%80%E4%B8%AADjango%E5%BA%94%E7%94%A8/">
+                      <a href="/08/10/%E5%89%8D%E7%AB%AF/Vue-Cookies%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">编写第一个Django应用</span>
+                        <span class="hidden-mobile">vue-cookies常用操作</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -802,7 +819,7 @@ firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></
 
   
     <!-- KaTeX -->
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0/dist/katex.min.css" />
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.20/dist/katex.min.css" />
   
 
 
@@ -836,6 +853,13 @@ firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></
   
 
 
+
+
+  
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/caidai.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/timeDate.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/yinghua.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/love.js"></script>
 
 
 

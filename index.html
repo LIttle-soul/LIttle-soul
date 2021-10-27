@@ -52,6 +52,13 @@
 
 <!-- 自定义样式保持在最底部 -->
 
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/toubudaziji.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/daziyanse.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/gundongtiao.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/shubiao.css">
+
+
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
@@ -59,7 +66,11 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<!-- hexo injector head_end start --><script src='/js/FunnyTitle.js'></script><script src='/live2d-widget/autoload.js'></script><link rel="stylesheet" href='/css/mouse.css'><link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css'>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<script src='/js/FunnyTitle.js'></script><script src='/live2d-widget/autoload.js'></script><link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css'>
   <link rel='stylesheet' href='/css/live2d.css'><script src='/js/WaifuMove.js'></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
 
 
@@ -212,14 +223,16 @@
           
             
           
-          一. 基础 git 命令1. 身份设置实现: git configgit config --global user.name "Your name"
+           一. 基础 git 命令
+ 1. 身份设置实现: git config
+git config --global user.name "Your name"
 git config --global user.email "Your email"
-
-2. 版本查看实现: git versiongit version
-
-3. 储存库初始化实现: git init$ git init
-或者
+ 2. 版本查看实现: git version
+git version
+ 3. 储存库初始化实现: git init
 $ git init
+或者
+$ gi
         </a>
       </p>
 
@@ -269,10 +282,10 @@ $ git init
           
             
           
-          1. 查看 Django 版本$ python -m django --version
-
-2. 创建项目$ django-admin startproject mysite
-
+           1. 查看 Django 版本
+$ python -m django --version
+ 2. 创建项目
+$ django-admin startproject mysite
 
 文件目录
 
@@ -282,7 +295,7 @@ mysite&#x2F;
         __init__.py
         settings.py
         urls.py
-     
+   
         </a>
       </p>
 
@@ -325,6 +338,64 @@ mysite&#x2F;
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/08/10/%E5%89%8D%E7%AB%AF/Vue-Cookies%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/" target="_self">
+          vue-cookies常用操作
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/08/10/%E5%89%8D%E7%AB%AF/Vue-Cookies%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/" target="_self">
+          
+          
+            
+          
+           1. 简介
+
+cookies 在前端开发项目中是常用的功能之一，几乎所有的浏览器都支持原生的 cookies，并且后端接口可以直接写入 cookies，这点相对于 localStore 来说算个小优势，而在大多数情况下项目开发会选择 vue 框架，因为 vue 框架开发效率高，也更易于后期的升级迭代和维护。vue-cookies 就是为 vue 框架打造的一款操作 cookies 的工具。
+
+ 
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-08-10 08:00" pubdate>
+              2021-08-10
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+            
+              <a href="/categories/%E5%89%8D%E7%AB%AF/Vue3/">Vue3</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+            
+              <a href="/tags/Vue3/">Vue3</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/04/30/Linux/%E9%AB%98%E8%81%8C%E7%BB%84%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E9%A2%98%E5%BA%93(%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2)/" target="_self">
           高职组软件测试赛题库(环境部署)
         </a>
@@ -337,11 +408,13 @@ mysite&#x2F;
             
           
           
-一. 任务概述
+ 一. 任务概述
+
 本部分按照环境搭建及系统部署要求文档，完成 CentOS、JDK、MySQL、Tomcat 等测试环境搭建与配置，并安装与部署应用系统，并最终能通过浏览器成功访问系统，过程与结果需截图。截图需粘贴在环境搭建及系统部署报告中。
 
-二. 题目要求
-个人使用最新版的 VirtualBox6.1.22, CenterOS7, Openjdk16.0.1, mysql8.0.24, Tom
+ 二. 题目要求
+
+个人使用最新版的 VirtualBox6.1.22, CenterOS7, Openjdk16.0.1, mysql8.0.24,
         </a>
       </p>
 
@@ -391,10 +464,12 @@ mysite&#x2F;
           
             
           
-          筛质数埃氏筛法(埃拉托斯特尼筛法)const int N &#x3D; 1e7;&#x2F;&#x2F;筛的范围
+           筛质数
+ 埃氏筛法(埃拉托斯特尼筛法)
+const int N &#x3D; 1e7;&#x2F;&#x2F;筛的范围
 bool st[N + 10];&#x2F;&#x2F;判断是否为质数 初始为false false为质数 true为非质数
 int save[N + 10], idx &#x3D; 0;&#x2F;&#x2F;用来存储质数
-st[0] &#x3D; st[1] &#x3D; true
+st[0] &#x3D; st[1] &#x3D; 
         </a>
       </p>
 
@@ -446,15 +521,20 @@ st[0] &#x3D; st[1] &#x3D; true
           
             
           
-          1. Math 引用
-行内式引用\\(....\\)$..$
-独立式引用$$...$$\\[..\\]\begin&#123;equation&#125;...\end&#123;equation&#125;
+           1. Math 引用
+
+行内式引用
+\\(....\\)
+$..$
+独立式引用
+$$...$$
+\\[..\\]
+\begin&#123;equation&#125;...\end&#123;equation&#125;
 
 $ E &#x3D; mc^2 $
 $$ E &#x3D; mc^2 $$
 \[ \boxed&#123;E &#x3D; mc^2&#125; \]
-
-$ E = mc^2 $$$ E 
+$ E = mc^2 
         </a>
       </p>
 
@@ -508,7 +588,8 @@ $ E = mc^2 $$$ E
           
             
           
-          1. 模型设计#! mysite/news/models.py
+           1. 模型设计
+#! mysite/news/models.py
 
 from django.db import models
 
@@ -519,7 +600,7 @@ class Reporter(models.Model):
         return self.full_name
 
 
-cla
+c
         </a>
       </p>
 
@@ -628,16 +709,16 @@ The Standard Template Library (STL) is a set of C++ template classes to provide 
           
             
           
-          1. 万能头文件#include&lt;bits&#x2F;stdc++.h&gt;
+           1. 万能头文件
+#include&lt;bits&#x2F;stdc++.h&gt;
+ 2. C++头文件汇总
 
-2. C++头文件汇总
 C 头文件
 
 #include &lt;assert.h>　　　　//设定插入点
 #include &lt;ctype.h>　　　　 //字符处理
 #include &lt;errno.h>　　　　 //定义错误码
 #include &lt;float.h>　　　　 //浮点数处理
-#i
         </a>
       </p>
 
@@ -735,67 +816,13 @@ pair&lt;int, int&gt;
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/01/30/ACM/%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E4%BC%98%E5%8C%96/" target="_self">
-          C/C++输入输出加速
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/01/30/ACM/%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E4%BC%98%E5%8C%96/" target="_self">
-          
-          
-            
-          
-          ios::sync_with_stdio(false);
-cin.tie(NULL);
-const int maxn &#x3D; 110;
-const int INF &#x3D; 0x3f3f3f3f;
-
-1. 快读inline int read()&#123;
-    int re&#x3D;0,k&#x3D;1;
-    char ch&#x3D;getchar();
-    while(
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-01-30 00:00" pubdate>
-              2020-01-30
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/ACM/">ACM</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/C-C/">C/C++</a>
-            
-              <a href="/tags/ACM/">ACM</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
 
 
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
 
 
 
@@ -967,6 +994,13 @@ const int INF &#x3D; 0x3f3f3f3f;
   
 
 
+
+
+  
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/caidai.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/timeDate.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/yinghua.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/love.js"></script>
 
 
 

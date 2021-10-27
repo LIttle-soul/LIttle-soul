@@ -16,12 +16,12 @@
   <meta name="description" content="一只小菜鸟的学习日志">
   <meta name="author" content="LiSoul">
   <meta name="keywords" content="lsoj,lisoul,LiSoul,LSOJ,renchenghui,Little-Soul,littlesoul">
-  <meta name="description" content="一. 基础 git 命令1. 身份设置实现: git configgit config --global user.name &quot;Your name&quot; git config --global user.email &quot;Your email&quot;  2. 版本查看实现: git versiongit version  3. 储存库初始化实现: git init$ git init 或者 $ git init">
+  <meta name="description" content="一. 基础 git 命令  1. 身份设置实现: git config git config --global user.name &quot;Your name&quot; git config --global user.email &quot;Your email&quot;  2. 版本查看实现: git version git version  3. 储存库初始化实现: git init $ git init 或者 $ gi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git 常用操作流程实现">
 <meta property="og:url" content="https://little-soul.github.io/10/10/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E5%AE%9E%E7%8E%B0/">
 <meta property="og:site_name" content="LiSoul">
-<meta property="og:description" content="一. 基础 git 命令1. 身份设置实现: git configgit config --global user.name &quot;Your name&quot; git config --global user.email &quot;Your email&quot;  2. 版本查看实现: git versiongit version  3. 储存库初始化实现: git init$ git init 或者 $ git init">
+<meta property="og:description" content="一. 基础 git 命令  1. 身份设置实现: git config git config --global user.name &quot;Your name&quot; git config --global user.email &quot;Your email&quot;  2. 版本查看实现: git version git version  3. 储存库初始化实现: git init $ git init 或者 $ gi">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-10-10T00:00:00.000Z">
 <meta property="article:modified_time" content="2021-10-27T12:58:40.823Z">
@@ -73,6 +73,13 @@
 
 <!-- 自定义样式保持在最底部 -->
 
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/toubudaziji.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/daziyanse.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/gundongtiao.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/shubiao.css">
+
+
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
@@ -80,7 +87,11 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<!-- hexo injector head_end start --><script src='/js/FunnyTitle.js'></script><script src='/live2d-widget/autoload.js'></script><link rel="stylesheet" href='/css/mouse.css'><link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css'>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<script src='/js/FunnyTitle.js'></script><script src='/live2d-widget/autoload.js'></script><link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css'>
   <link rel='stylesheet' href='/css/live2d.css'><script src='/js/WaifuMove.js'></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
 
 
@@ -263,157 +274,157 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：39 分钟前
+                  本文最后更新于：4 小时前
                 
               </p>
             
             <div class="markdown-body">
-              <h2 id="一-基础-git-命令"><a href="#一-基础-git-命令" class="headerlink" title="一. 基础 git 命令"></a>一. 基础 git 命令</h2><h3 id="1-身份设置实现-git-config"><a href="#1-身份设置实现-git-config" class="headerlink" title="1. 身份设置实现: git config"></a>1. 身份设置实现: <code>git config</code></h3><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config --global user.name <span class="token string">"Your name"</span>
+              <h2 id="一-基础-git-命令"><a class="markdownIt-Anchor" href="#一-基础-git-命令"></a> 一. 基础 git 命令</h2>
+<h3 id="1-身份设置实现-git-config"><a class="markdownIt-Anchor" href="#1-身份设置实现-git-config"></a> 1. 身份设置实现: <code>git config</code></h3>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config --global user.name <span class="token string">"Your name"</span>
 <span class="token function">git</span> config --global user.email <span class="token string">"Your email"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
-
-<h3 id="2-版本查看实现-git-version"><a href="#2-版本查看实现-git-version" class="headerlink" title="2. 版本查看实现: git version"></a>2. 版本查看实现: <code>git version</code></h3><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> version<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
-<h3 id="3-储存库初始化实现-git-init"><a href="#3-储存库初始化实现-git-init" class="headerlink" title="3. 储存库初始化实现: git init"></a>3. 储存库初始化实现: <code>git init</code></h3><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">git</span> init
+<h3 id="2-版本查看实现-git-version"><a class="markdownIt-Anchor" href="#2-版本查看实现-git-version"></a> 2. 版本查看实现: <code>git version</code></h3>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> version<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<h3 id="3-储存库初始化实现-git-init"><a class="markdownIt-Anchor" href="#3-储存库初始化实现-git-init"></a> 3. 储存库初始化实现: <code>git init</code></h3>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">git</span> init
 或者
 $ <span class="token function">git</span> init <span class="token operator">&lt;</span>your repository name<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div>
-
-<h3 id="4-储存库克隆-git-clone"><a href="#4-储存库克隆-git-clone" class="headerlink" title="4. 储存库克隆: git clone"></a>4. 储存库克隆: <code>git clone</code></h3><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone <span class="token operator">&lt;</span>your project URL<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
-<h3 id="5-储存库文件添加-git-add"><a href="#5-储存库文件添加-git-add" class="headerlink" title="5. 储存库文件添加: git add"></a>5. 储存库文件添加: <code>git add</code></h3><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">git</span> <span class="token function">add</span> your_file_name
+<h3 id="4-储存库克隆-git-clone"><a class="markdownIt-Anchor" href="#4-储存库克隆-git-clone"></a> 4. 储存库克隆: <code>git clone</code></h3>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone <span class="token operator">&lt;</span>your project URL<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<h3 id="5-储存库文件添加-git-add"><a class="markdownIt-Anchor" href="#5-储存库文件添加-git-add"></a> 5. 储存库文件添加: <code>git add</code></h3>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">git</span> <span class="token function">add</span> your_file_name
 or
 $ <span class="token function">git</span> <span class="token function">add</span> *         <span class="token comment"># 此命令添加所有修改过的文件</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div>
-
-<h3 id="6-将更改添加到本地储存库-git-commit"><a href="#6-将更改添加到本地储存库-git-commit" class="headerlink" title="6. 将更改添加到本地储存库: git commit"></a>6. 将更改添加到本地储存库: <code>git commit</code></h3><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> commit -m <span class="token string">'your useful commit message'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
-<h3 id="7-查看需要关注的文件-git-status"><a href="#7-查看需要关注的文件-git-status" class="headerlink" title="7. 查看需要关注的文件: git status"></a>7. 查看需要关注的文件: <code>git status</code></h3><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> status<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
-<h3 id="8-分支管理-git-branch"><a href="#8-分支管理-git-branch" class="headerlink" title="8. 分支管理: git branch"></a>8. 分支管理: <code>git branch</code></h3><ul>
+<h3 id="6-将更改添加到本地储存库-git-commit"><a class="markdownIt-Anchor" href="#6-将更改添加到本地储存库-git-commit"></a> 6. 将更改添加到本地储存库: <code>git commit</code></h3>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> commit -m <span class="token string">'your useful commit message'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<h3 id="7-查看需要关注的文件-git-status"><a class="markdownIt-Anchor" href="#7-查看需要关注的文件-git-status"></a> 7. 查看需要关注的文件: <code>git status</code></h3>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> status<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<h3 id="8-分支管理-git-branch"><a class="markdownIt-Anchor" href="#8-分支管理-git-branch"></a> 8. 分支管理: <code>git branch</code></h3>
+<ul>
 <li>列出本地所有分支</li>
 </ul>
 <div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> branch<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
 <ul>
 <li>列出云端所有分支</li>
 </ul>
 <div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> branch -a<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
 <ul>
 <li>创建新的分支</li>
 </ul>
 <div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> branch <span class="token operator">&lt;</span>branch_name<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
 <ul>
 <li>删除分支</li>
 </ul>
 <div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> branch -d <span class="token operator">&lt;</span>branch_name<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
-<h3 id="9-分支切换-git-checkout"><a href="#9-分支切换-git-checkout" class="headerlink" title="9. 分支切换: git checkout"></a>9. 分支切换: <code>git checkout</code></h3><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> checkout <span class="token operator">&lt;</span>branch_name<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
+<h3 id="9-分支切换-git-checkout"><a class="markdownIt-Anchor" href="#9-分支切换-git-checkout"></a> 9. 分支切换: <code>git checkout</code></h3>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> checkout <span class="token operator">&lt;</span>branch_name<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <ul>
 <li>创建检出分支</li>
 </ul>
 <div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> checkout -b <span class="token operator">&lt;</span>your_new_branch_name<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
-<h2 id="二-中级-git-命令"><a href="#二-中级-git-命令" class="headerlink" title="二. 中级 git 命令"></a>二. 中级 git 命令</h2><h3 id="1-远程连接-git-remote"><a href="#1-远程连接-git-remote" class="headerlink" title="1. 远程连接: git remote"></a>1. 远程连接: <code>git remote</code></h3><ul>
+<h2 id="二-中级-git-命令"><a class="markdownIt-Anchor" href="#二-中级-git-命令"></a> 二. 中级 git 命令</h2>
+<h3 id="1-远程连接-git-remote"><a class="markdownIt-Anchor" href="#1-远程连接-git-remote"></a> 1. 远程连接: <code>git remote</code></h3>
+<ul>
 <li>将本地储存库连接到远程</li>
 </ul>
 <div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> remote <span class="token function">add</span> <span class="token operator">&lt;</span>shortname<span class="token operator">></span> <span class="token operator">&lt;</span>url<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
 <ul>
 <li>样例</li>
 </ul>
 <div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> remote <span class="token function">add</span> origin https<span class="token punctuation">;</span>//gitee.com/you_git_name<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
-<h3 id="2-远程推送-git-push"><a href="#2-远程推送-git-push" class="headerlink" title="2. 远程推送: git push"></a>2. 远程推送: <code>git push</code></h3><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> push -u <span class="token operator">&lt;</span>short_name<span class="token operator">></span> <span class="token operator">&lt;</span>your_branch_name<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
-<h3 id="3-远程设置-git-push-set-upstream"><a href="#3-远程设置-git-push-set-upstream" class="headerlink" title="3. 远程设置: git push --set-upstream"></a>3. 远程设置: <code>git push --set-upstream</code></h3><blockquote>
+<h3 id="2-远程推送-git-push"><a class="markdownIt-Anchor" href="#2-远程推送-git-push"></a> 2. 远程推送: <code>git push</code></h3>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> push -u <span class="token operator">&lt;</span>short_name<span class="token operator">></span> <span class="token operator">&lt;</span>your_branch_name<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<h3 id="3-远程设置-git-push-set-upstream"><a class="markdownIt-Anchor" href="#3-远程设置-git-push-set-upstream"></a> 3. 远程设置: <code>git push --set-upstream</code></h3>
+<blockquote>
 <p>在使用 git push 之前，我们应先设置好 origin 和 upstream。</p>
 </blockquote>
 <div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> push --set-upstream <span class="token operator">&lt;</span>short_name<span class="token operator">></span> <span class="token operator">&lt;</span>your_branch_name<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
-<h3 id="4-下载更改-git-fetch"><a href="#4-下载更改-git-fetch" class="headerlink" title="4. 下载更改: git fetch"></a>4. 下载更改: <code>git fetch</code></h3><blockquote>
-<p>当下载其他团队成员的更改时，就得使用<code>git fetch</code><br>此命令会下载有关提交，引用等所有信息，因此你可以在将这些更改应用于本地储存库之前对其进行检查。</p>
+<h3 id="4-下载更改-git-fetch"><a class="markdownIt-Anchor" href="#4-下载更改-git-fetch"></a> 4. 下载更改: <code>git fetch</code></h3>
+<blockquote>
+<p>当下载其他团队成员的更改时，就得使用<code>git fetch</code><br />
+此命令会下载有关提交，引用等所有信息，因此你可以在将这些更改应用于本地储存库之前对其进行检查。</p>
 </blockquote>
 <div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> fetch<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
-<h3 id="5-更新本地储存库-git-pull"><a href="#5-更新本地储存库-git-pull" class="headerlink" title="5. 更新本地储存库: git pull"></a>5. 更新本地储存库: <code>git pull</code></h3><blockquote>
+<h3 id="5-更新本地储存库-git-pull"><a class="markdownIt-Anchor" href="#5-更新本地储存库-git-pull"></a> 5. 更新本地储存库: <code>git pull</code></h3>
+<blockquote>
 <p><code>git pull</code> 会将所有最新的内容更新到本地储存库</p>
 </blockquote>
 <div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> pull <span class="token operator">&lt;</span>remote_url<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
-<h3 id="6-临时储存已修改文件-git-stash"><a href="#6-临时储存已修改文件-git-stash" class="headerlink" title="6. 临时储存已修改文件: git stash"></a>6. 临时储存已修改文件: <code>git stash</code></h3><ul>
+<h3 id="6-临时储存已修改文件-git-stash"><a class="markdownIt-Anchor" href="#6-临时储存已修改文件-git-stash"></a> 6. 临时储存已修改文件: <code>git stash</code></h3>
+<ul>
 <li>用法</li>
 </ul>
 <div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> stash<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
 <ul>
 <li>查看所有 stash</li>
 </ul>
 <div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> stash list<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
 <ul>
 <li>应用 stash 到分支</li>
 </ul>
 <div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> stash apply<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
-<h3 id="7-git-log"><a href="#7-git-log" class="headerlink" title="7. git log"></a>7. <code>git log</code></h3><blockquote>
+<h3 id="7-git-log"><a class="markdownIt-Anchor" href="#7-git-log"></a> 7. <code>git log</code></h3>
+<blockquote>
 <p>在 git log 的帮助下，你可以看到所有之前的提交，并且最近的提交出现在最前面。</p>
 </blockquote>
 <ul>
 <li>用法</li>
 </ul>
 <div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> log<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
 <blockquote>
 <p>默认情况下，它将显示当前已检出分支的所有提交，但是你可以强制通过所有选项来查看所有分支的所有提交。</p>
 </blockquote>
 <div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> log --all<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
-<h3 id="8-git-shortlog"><a href="#8-git-shortlog" class="headerlink" title="8. git shortlog"></a>8. <code>git shortlog</code></h3><blockquote>
-<p>git shortlog 命令会显示来自 git log 命令的摘要。如果你只对简短的摘要感兴趣，那么此命令就非常有用了。<br>这个命令有助于查看谁处理了什么，因为它对作者及其提交进行了分组。</p>
+<h3 id="8-git-shortlog"><a class="markdownIt-Anchor" href="#8-git-shortlog"></a> 8. <code>git shortlog</code></h3>
+<blockquote>
+<p>git shortlog 命令会显示来自 git log 命令的摘要。如果你只对简短的摘要感兴趣，那么此命令就非常有用了。<br />
+这个命令有助于查看谁处理了什么，因为它对作者及其提交进行了分组。</p>
 </blockquote>
 <ul>
 <li>用法</li>
 </ul>
 <div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> shortlog<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
-<h3 id="9-git-show"><a href="#9-git-show" class="headerlink" title="9. git show"></a>9. <code>git show</code></h3><blockquote>
+<h3 id="9-git-show"><a class="markdownIt-Anchor" href="#9-git-show"></a> 9. <code>git show</code></h3>
+<blockquote>
 <p>与 git log 相比，此命令将显示有关特定提交的详细信息。</p>
 </blockquote>
 <ul>
 <li>用法</li>
 </ul>
 <div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> show <span class="token operator">&lt;</span>your_commit_hash<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
-<h3 id="10-git-rm"><a href="#10-git-rm" class="headerlink" title="10. git rm"></a>10. <code>git rm</code></h3><blockquote>
-<p>有时你需要从代码库中删除文件，在这种情况下，可以使用 git rm 命令。<br>它可以从索引和工作目录中删除跟踪的文件。</p>
+<h3 id="10-git-rm"><a class="markdownIt-Anchor" href="#10-git-rm"></a> 10. <code>git rm</code></h3>
+<blockquote>
+<p>有时你需要从代码库中删除文件，在这种情况下，可以使用 git rm 命令。<br />
+它可以从索引和工作目录中删除跟踪的文件。</p>
 </blockquote>
 <ul>
 <li>用法</li>
 </ul>
 <div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">rm</span> <span class="token operator">&lt;</span>your_file_name<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
-<h3 id="11-git-merge"><a href="#11-git-merge" class="headerlink" title="11. git merge"></a>11. <code>git merge</code></h3><blockquote>
+<h3 id="11-git-merge"><a class="markdownIt-Anchor" href="#11-git-merge"></a> 11. <code>git merge</code></h3>
+<blockquote>
 <p>git merge 可帮助将来自两个分支的更改集成到单个分支中。</p>
 </blockquote>
 <ul>
 <li>用法</li>
 </ul>
 <div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> merge <span class="token operator">&lt;</span>branch_name<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
 <blockquote>
-<p>此命令会将<branch_name>合并到当前你选择的分支中。</p>
+<p>此命令会将&lt;branch_name&gt;合并到当前你选择的分支中。</p>
 </blockquote>
 <p><font color='#ff0000' face='楷体' size=5>注: 我们可以使用此命令实现合并内容到自己分支。</font></p>
-<h2 id="三-高级-Git-命令"><a href="#三-高级-Git-命令" class="headerlink" title="三. 高级 Git 命令"></a>三. 高级 Git 命令</h2><h3 id="1-git-rebase"><a href="#1-git-rebase" class="headerlink" title="1. git rebase"></a>1. <code>git rebase</code></h3><blockquote>
-<p>git rebase 类似于 git merge 命令。它把两个分支集成到一个分支中，但有一个不一样的地方：git rebase 命令将会重写提交记录。<br>当你有多个私有分支合并到单个分支时，应使用 git rebase 命令。它将使得提交历史成为线性的。</p>
+<h2 id="三-高级-git-命令"><a class="markdownIt-Anchor" href="#三-高级-git-命令"></a> 三. 高级 Git 命令</h2>
+<h3 id="1-git-rebase"><a class="markdownIt-Anchor" href="#1-git-rebase"></a> 1. <code>git rebase</code></h3>
+<blockquote>
+<p>git rebase 类似于 git merge 命令。它把两个分支集成到一个分支中，但有一个不一样的地方：git rebase 命令将会重写提交记录。<br />
+当你有多个私有分支合并到单个分支时，应使用 git rebase 命令。它将使得提交历史成为线性的。</p>
 </blockquote>
 <ul>
 <li>用法</li>
 </ul>
 <div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> rebase <span class="token operator">&lt;</span>base<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
-<h3 id="2-git-bisect"><a href="#2-git-bisect" class="headerlink" title="2. git bisect"></a>2. <code>git bisect</code></h3><blockquote>
+<h3 id="2-git-bisect"><a class="markdownIt-Anchor" href="#2-git-bisect"></a> 2. <code>git bisect</code></h3>
+<blockquote>
 <p>git bisect 命令可帮助查找糟糕的提交。</p>
 </blockquote>
 <ul>
@@ -423,86 +434,85 @@ $ <span class="token function">git</span> <span class="token function">add</span
 <li>启动 git bisect</li>
 </ol>
 <div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> bisect start<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
 <ol>
 <li>让 git bisect 知道什么是好的提交</li>
 </ol>
 <div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> bisect good a123<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
 <ol>
 <li>让 git bisect 知道什么是糟糕的提交</li>
 </ol>
 <div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> bisect bad z123<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
 <blockquote>
 <p>通过 git bisect，只要几分钟你就可以缩小问题代码的范围。</p>
 </blockquote>
-<h3 id="3-git-cherry-pick"><a href="#3-git-cherry-pick" class="headerlink" title="3. git cherry-pick"></a>3. <code>git cherry-pick</code></h3><blockquote>
+<h3 id="3-git-cherry-pick"><a class="markdownIt-Anchor" href="#3-git-cherry-pick"></a> 3. <code>git cherry-pick</code></h3>
+<blockquote>
 <p>git cherry-pick 是一个蛮有用的命令，允许你从任意分支中选择任意提交并将其应用于其他任意分支。</p>
 </blockquote>
 <ul>
 <li>用法</li>
 </ul>
 <div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> cherry-pick <span class="token operator">&lt;</span>commit-hash<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
 <blockquote>
 <p>git cherry-pick 不会修改存储库的历史记录；相反，它会添加到历史记录。</p>
 </blockquote>
-<h3 id="4-git-archive"><a href="#4-git-archive" class="headerlink" title="4. git archive"></a>4. <code>git archive</code></h3><blockquote>
+<h3 id="4-git-archive"><a class="markdownIt-Anchor" href="#4-git-archive"></a> 4. <code>git archive</code></h3>
+<blockquote>
 <p>git archive 命令会把多个文件合并为单个文件。就好像 zip 实用程序一样，所以你可以提取存档文件以获取单个文件。</p>
 </blockquote>
 <ul>
 <li>用法</li>
 </ul>
 <div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> archive --format <span class="token function">zip</span> HEAD <span class="token operator">></span> archive-HEAD.zip<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
 <blockquote>
 <p>它将创建当前修订的 zip 存档。</p>
 </blockquote>
-<h3 id="5-git-pull-rebase"><a href="#5-git-pull-rebase" class="headerlink" title="5. git pull --rebase"></a>5. <code>git pull --rebase</code></h3><blockquote>
-<p>在大多数情况下，当你使用 git pull 时，你需要重新设置基准（并且不进行合并）。<br>此时，你就可以使用此选项。</p>
+<h3 id="5-git-pull-rebase"><a class="markdownIt-Anchor" href="#5-git-pull-rebase"></a> 5. <code>git pull --rebase</code></h3>
+<blockquote>
+<p>在大多数情况下，当你使用 git pull 时，你需要重新设置基准（并且不进行合并）。<br />
+此时，你就可以使用此选项。</p>
 </blockquote>
 <ul>
 <li>用法</li>
 </ul>
 <div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> pull --rebase<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
 <blockquote>
 <p>这将帮助保持干净的历史记录。另外，还可以避免多次合并。</p>
 </blockquote>
-<h3 id="6-git-blame"><a href="#6-git-blame" class="headerlink" title="6. git blame"></a>6. <code>git blame</code></h3><blockquote>
+<h3 id="6-git-blame"><a class="markdownIt-Anchor" href="#6-git-blame"></a> 6. <code>git blame</code></h3>
+<blockquote>
 <p>如果你需要逐行检查任意文件的内容，则需要使用 git blame 命令。它可以帮助确定是谁对文件进行了更改。</p>
 </blockquote>
 <ul>
 <li>用法</li>
 </ul>
 <div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> blame <span class="token operator">&lt;</span>your_file_name<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
-<h3 id="7-git-tag"><a href="#7-git-tag" class="headerlink" title="7. git tag"></a>7. <code>git tag</code></h3><blockquote>
+<h3 id="7-git-tag"><a class="markdownIt-Anchor" href="#7-git-tag"></a> 7. <code>git tag</code></h3>
+<blockquote>
 <p>在 Git 中，标签很有用，你可以使用它们来管理发布。你可以将 git tag 视为不会改变的分支。尤其是要公开发布的时候，则更为重要了。</p>
 </blockquote>
 <ul>
 <li>用法</li>
 </ul>
 <div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> tag -a v1.0.0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
-<h3 id="8-git-verify-commit"><a href="#8-git-verify-commit" class="headerlink" title="8. git verify-commit"></a>8. <code>git verify-commit</code></h3><blockquote>
+<h3 id="8-git-verify-commit"><a class="markdownIt-Anchor" href="#8-git-verify-commit"></a> 8. <code>git verify-commit</code></h3>
+<blockquote>
 <p>git verify-commit 命令将检查 gpg 签名。GPG，GNU Privacy Guard，是 sign 文件中使用的工具，包含签名。</p>
 </blockquote>
 <ul>
 <li>用法</li>
 </ul>
 <div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> verify-commit <span class="token operator">&lt;</span>commit<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
-<h3 id="9-git-verify-tag"><a href="#9-git-verify-tag" class="headerlink" title="9. git verify-tag"></a>9. <code>git verify-tag</code></h3><blockquote>
+<h3 id="9-git-verify-tag"><a class="markdownIt-Anchor" href="#9-git-verify-tag"></a> 9. <code>git verify-tag</code></h3>
+<blockquote>
 <p>可以以同样的方式确认标签。</p>
 </blockquote>
 <ul>
 <li>用法</li>
 </ul>
 <div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> verify-tag <span class="token operator">&lt;</span>tag<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
-<h3 id="10-git-diff"><a href="#10-git-diff" class="headerlink" title="10. git diff"></a>10. <code>git diff</code></h3><blockquote>
+<h3 id="10-git-diff"><a class="markdownIt-Anchor" href="#10-git-diff"></a> 10. <code>git diff</code></h3>
+<blockquote>
 <p>大多数情况下，在提交或推送之前，你需要比较两个 git 文件或分支。用这个命令就方便多了。</p>
 </blockquote>
 <ul>
@@ -512,45 +522,44 @@ $ <span class="token function">git</span> <span class="token function">add</span
 <li>将工作目录与本地存储库进行比较：</li>
 </ol>
 <div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">diff</span> HEAD <span class="token operator">&lt;</span>filename<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
 <ol>
 <li>比较两个分支：</li>
 </ol>
 <div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">diff</span> <span class="token operator">&lt;</span>source branch<span class="token operator">></span> <span class="token operator">&lt;</span>target branch<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
-<h3 id="11-git-citool"><a href="#11-git-citool" class="headerlink" title="11. git citool"></a>11. <code>git citool</code></h3><blockquote>
+<h3 id="11-git-citool"><a class="markdownIt-Anchor" href="#11-git-citool"></a> 11. <code>git citool</code></h3>
+<blockquote>
 <p>git citool 是 Git 提交的图形化替代。</p>
 </blockquote>
 <ul>
 <li>用法</li>
 </ul>
 <div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> citool<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
-<h3 id="12-git-mv"><a href="#12-git-mv" class="headerlink" title="12. git mv"></a>12. <code>git mv</code></h3><blockquote>
+<h3 id="12-git-mv"><a class="markdownIt-Anchor" href="#12-git-mv"></a> 12. <code>git mv</code></h3>
+<blockquote>
 <p>重命名 git 文件。接受两个参数，源文件名和目标文件名。</p>
 </blockquote>
 <ul>
 <li>用法</li>
 </ul>
 <div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">mv</span> <span class="token operator">&lt;</span>old-file-name<span class="token operator">></span> <span class="token operator">&lt;</span>new-file-name<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
-<h3 id="13-git-clean"><a href="#13-git-clean" class="headerlink" title="13. git clean"></a>13. <code>git clean</code></h3><blockquote>
+<h3 id="13-git-clean"><a class="markdownIt-Anchor" href="#13-git-clean"></a> 13. <code>git clean</code></h3>
+<blockquote>
 <p>你可以使用 git clean 命令处理未跟踪的文件。可以使用此命令从工作目录中删除所有未跟踪的文件。如果要处理跟踪的文件，则需要使用 git reset 命令。</p>
 </blockquote>
 <ul>
 <li>用法</li>
 </ul>
 <div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clean<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
-<h3 id="14-git-help"><a href="#14-git-help" class="headerlink" title="14. git help"></a>14. <code>git help</code></h3><blockquote>
+<h3 id="14-git-help"><a class="markdownIt-Anchor" href="#14-git-help"></a> 14. <code>git help</code></h3>
+<blockquote>
 <p>Git 中有许多命令，如果你需要其他命令的帮助，则可以随时在终端上使用 git help。</p>
 </blockquote>
 <ul>
 <li>用法</li>
 </ul>
 <div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token builtin class-name">help</span> <span class="token operator">&lt;</span>git_command<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-
-<h3 id="15-git-whatchanged"><a href="#15-git-whatchanged" class="headerlink" title="15. git whatchanged"></a>15. <code>git whatchanged</code></h3><blockquote>
+<h3 id="15-git-whatchanged"><a class="markdownIt-Anchor" href="#15-git-whatchanged"></a> 15. <code>git whatchanged</code></h3>
+<blockquote>
 <p>此命令的作用与 git log 相同，但为原始格式。并且由于历史原因，它也是 git 的一份子。</p>
 </blockquote>
 <ul>
@@ -798,7 +807,7 @@ $ <span class="token function">git</span> <span class="token function">add</span
 
   
     <!-- KaTeX -->
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0/dist/katex.min.css" />
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.20/dist/katex.min.css" />
   
 
 
@@ -832,6 +841,13 @@ $ <span class="token function">git</span> <span class="token function">add</span
   
 
 
+
+
+  
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/caidai.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/timeDate.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/yinghua.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/love.js"></script>
 
 
 
