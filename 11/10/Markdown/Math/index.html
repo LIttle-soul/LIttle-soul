@@ -1,0 +1,1030 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/image/icon/icon.jpg">
+  <link rel="icon" href="/image/icon/icon.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="一只小菜鸟的学习日志">
+  <meta name="author" content="LiSoul">
+  <meta name="keywords" content="lsoj,lisoul,LiSoul,LSOJ,renchenghui,Little-Soul,littlesoul">
+  <meta name="description" content="1. Math 引用 行内式引用\\(....\\)$..$ 独立式引用$$...$$\\[..\\]\begin&amp;#123;equation&amp;#125;...\end&amp;#123;equation&amp;#125;  $ E &#x3D; mc^2 $ $$ E &#x3D; mc^2 $$ \[ \boxed&amp;#123;E &#x3D; mc^2&amp;#125; \]  $ E &#x3D; mc^2 $$$ E">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Marldown之数学公式详解">
+<meta property="og:url" content="https://little-soul.github.io/11/10/Markdown/Math/">
+<meta property="og:site_name" content="LiSoul">
+<meta property="og:description" content="1. Math 引用 行内式引用\\(....\\)$..$ 独立式引用$$...$$\\[..\\]\begin&amp;#123;equation&amp;#125;...\end&amp;#123;equation&amp;#125;  $ E &#x3D; mc^2 $ $$ E &#x3D; mc^2 $$ \[ \boxed&amp;#123;E &#x3D; mc^2&amp;#125; \]  $ E &#x3D; mc^2 $$$ E">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-11-10T00:00:00.000Z">
+<meta property="article:modified_time" content="2021-10-27T13:07:10.669Z">
+<meta property="article:author" content="LiSoul">
+<meta property="article:tag" content="Markdown">
+<meta property="article:tag" content="Math">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>Marldown之数学公式详解 - LiSoul</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      
+        
+          
+          
+          
+        
+        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/themes/prism-okaidia.min.css" />
+      
+      
+        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/plugins/line-numbers/prism-line-numbers.min.css" />
+      
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"little-soul.github.io","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"b7dd1be358088afd106bff2e9d064a6b","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"XFEf335X2GvXbf3lsXBVp0mL-gzGzoHsz","app_key":"qIcEeNldPCNzbVSpr6cvRSmR","server_url":"https://xfef335x.lc-cn-n1-shared.com","path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start --><script src='/js/FunnyTitle.js'></script><script src='/live2d-widget/autoload.js'></script><link rel="stylesheet" href='/css/mouse.css'><link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css'>
+  <link rel='stylesheet' href='/css/live2d.css'><script src='/js/WaifuMove.js'></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>LiSoul</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/image/background/background11.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Marldown之数学公式详解">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      LiSoul
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-11-10 08:00" pubdate>
+        2020年11月10日 早上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      6.7k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      21 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Marldown之数学公式详解</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：30 分钟前
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h3 id="1-Math-引用"><a href="#1-Math-引用" class="headerlink" title="1. Math 引用"></a>1. Math 引用</h3><ol>
+<li>行内式引用<br><code>\\(....\\)</code><br><code>$..$</code></li>
+<li>独立式引用<br><code>$$...$$</code><br><code>\\[..\\]</code><br><code>\begin&#123;equation&#125;...\end&#123;equation&#125;</code></li>
+</ol>
+<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">$ E &#x3D; mc^2 $
+$$ E &#x3D; mc^2 $$
+\[ \boxed&#123;E &#x3D; mc^2&#125; \]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div>
+
+<p>$ E = mc^2 $<br>$$ E = mc^2 $$<br>[ \boxed{E = mc^2} ]</p>
+<div class="code-wrapper"><pre class="line-numbers language-math" data-language="math"><code class="language-math">E &#x3D; mc^2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+
+<ul>
+<li>方程组</li>
+</ul>
+<p>$$<br>\begin{cases}<br>a_1x+b_1y+c_1z=d_1\<br>a_2x+b_2y+c_2z=d_2\<br>a_3x+b_3y+c_3z=d_3\<br>\end{cases}<br>$$</p>
+<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">\begin&#123;cases&#125;
+a_1x+b_1y+c_1z&#x3D;d_1\\
+a_2x+b_2y+c_2z&#x3D;d_2\\
+a_3x+b_3y+c_3z&#x3D;d_3\\
+\end&#123;cases&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<h3 id="2-基本元素"><a href="#2-基本元素" class="headerlink" title="2. 基本元素"></a>2. 基本元素</h3><ul>
+<li>希腊字母</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">代码</th>
+<th align="center">符号</th>
+<th align="center">代码</th>
+<th align="center">符号</th>
+<th align="center">代码</th>
+<th align="center">符号</th>
+<th align="center">代码</th>
+<th align="center">符号</th>
+<th align="center">代码</th>
+<th align="center">符号</th>
+<th align="center">代码</th>
+<th align="center">符号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">\alpha</td>
+<td align="center">$\alpha$</td>
+<td align="center">\beta</td>
+<td align="center">$\beta$</td>
+<td align="center">\gamma</td>
+<td align="center">$\gamma$</td>
+<td align="center">\delta</td>
+<td align="center">$\delta$</td>
+<td align="center">\mu</td>
+<td align="center">$\mu$</td>
+<td align="center">\varepsilon</td>
+<td align="center">$\varepsilon$</td>
+</tr>
+<tr>
+<td align="center">\zeta</td>
+<td align="center">$\zeta$</td>
+<td align="center">\eta</td>
+<td align="center">$\eta$</td>
+<td align="center">\Gamma</td>
+<td align="center">$\Gamma$</td>
+<td align="center">\Delta</td>
+<td align="center">$\Delta$</td>
+<td align="center">\Theta</td>
+<td align="center">$\Theta$</td>
+<td align="center">\vartheta</td>
+<td align="center">$\vartheta$</td>
+</tr>
+<tr>
+<td align="center">\theta</td>
+<td align="center">$\theta$</td>
+<td align="center">\iota</td>
+<td align="center">$\iota$</td>
+<td align="center">\kappa</td>
+<td align="center">$\kappa$</td>
+<td align="center">\lambda</td>
+<td align="center">$\lambda$</td>
+<td align="center">\phi</td>
+<td align="center">$\phi$</td>
+<td align="center">\epsilon</td>
+<td align="center">$\epsilon$</td>
+</tr>
+<tr>
+<td align="center">\nu</td>
+<td align="center">$\nu$</td>
+<td align="center">\xi</td>
+<td align="center">$\xi$</td>
+<td align="center">\Lambda</td>
+<td align="center">$\Lambda$</td>
+<td align="center">\Xi</td>
+<td align="center">$\Xi$</td>
+<td align="center">\Pi</td>
+<td align="center">$\Pi$</td>
+<td align="center">\o</td>
+<td align="center">$o$</td>
+</tr>
+<tr>
+<td align="center">\pi</td>
+<td align="center">$\pi$</td>
+<td align="center">\varpi</td>
+<td align="center">$\varpi$</td>
+<td align="center">\rho</td>
+<td align="center">$\rho$</td>
+<td align="center">\varrho</td>
+<td align="center">$\varrho$</td>
+<td align="center">\sigma</td>
+<td align="center">$\sigma$</td>
+<td align="center">\varsigma</td>
+<td align="center">$\varsigma$</td>
+</tr>
+<tr>
+<td align="center">\Sigma</td>
+<td align="center">$\Sigma$</td>
+<td align="center">\Psi</td>
+<td align="center">$\Psi$</td>
+<td align="center">\Phi</td>
+<td align="center">$\Phi$</td>
+<td align="center">\tau</td>
+<td align="center">$\tau$</td>
+<td align="center">\Omega</td>
+<td align="center">$\Omega$</td>
+<td align="center">\upsilon</td>
+<td align="center">$\upsilon$</td>
+</tr>
+<tr>
+<td align="center">\varphi</td>
+<td align="center">$\varphi$</td>
+<td align="center">\chi</td>
+<td align="center">$\chi$</td>
+<td align="center">\psi</td>
+<td align="center">$\psi$</td>
+<td align="center">\omega</td>
+<td align="center">$\omega$</td>
+<td align="center">\Upsilon</td>
+<td align="center">$\Upsilon$</td>
+<td align="center"></td>
+<td align="center">$ $</td>
+</tr>
+</tbody></table>
+<ul>
+<li>常用符号</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">代码</th>
+<th align="center">符号</th>
+<th align="center">代码</th>
+<th align="center">符号</th>
+<th align="center">代码</th>
+<th align="center">符号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">^</td>
+<td align="center">$a^2$</td>
+<td align="center">_</td>
+<td align="center">$a_2$</td>
+<td align="center">\sqrt</td>
+<td align="center">$\sqrt{5}$</td>
+</tr>
+<tr>
+<td align="center">\frac</td>
+<td align="center">$\frac {1}{2}$</td>
+<td align="center">\dfrac</td>
+<td align="center">$\dfrac {1}{2}$</td>
+<td align="center">\tfrac</td>
+<td align="center">$\tfrac {1}{2}$</td>
+</tr>
+</tbody></table>
+<ul>
+<li>特殊符号</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">代码</th>
+<th align="center">符号</th>
+<th align="center">代码</th>
+<th align="center">符号</th>
+<th align="center">代码</th>
+<th align="center">符号</th>
+<th align="center">代码</th>
+<th align="center">符号</th>
+<th align="center">代码</th>
+<th align="center">符号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">\infty</td>
+<td align="center">$\infty$</td>
+<td align="center">\cup</td>
+<td align="center">$\cup$</td>
+<td align="center">\cap</td>
+<td align="center">$\cap$</td>
+<td align="center">\subset</td>
+<td align="center">$\subset$</td>
+<td align="center">\subseteq</td>
+<td align="center">$\subseteq$</td>
+</tr>
+<tr>
+<td align="center">\supset</td>
+<td align="center">$\supset$</td>
+<td align="center">\in</td>
+<td align="center">$\in$</td>
+<td align="center">\notin</td>
+<td align="center">$\notin$</td>
+<td align="center">\varnothing</td>
+<td align="center">$\varnothing$</td>
+<td align="center">\forall</td>
+<td align="center">$\forall$</td>
+</tr>
+<tr>
+<td align="center">\exists</td>
+<td align="center">$\exists$</td>
+<td align="center">\lnot</td>
+<td align="center">$\lnot$</td>
+<td align="center">\nabla</td>
+<td align="center">$\nabla$</td>
+<td align="center">\partial</td>
+<td align="center">$\partial$</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<ul>
+<li>运算符</li>
+</ul>
+<p>|      代码      |       符号       |      代码       |       符号        |        代码         |         符号          |        代码        |         符号         |      代码       |       符号        |<br>| :————: | :————–: | :————-: | :—————: | :—————–: | :——————-: | :—————-: | :——————: | :————-: | :—————: | ——————- | ——————— |<br>|      \pm       |      $\pm$       |     \times      |     $\times$      |        \div         |        $\div$         |       \cdot        |       $\cdot$        |      \cap       |      $\cap$       |<br>|      \cup      |      $\cup$      |      \geq       |      $\geq$       |        \leq         |        $\leq$         |        \neq        |        $\neq$        |     \approx     |     $\approx$     |<br>|     \equiv     |     $\equiv$     |      \sum       |      $\sum$       |        \prod        |        $\prod$        |        \lim        |        $\lim$        |      \int       |      $\int$       |<br>|   \iint\quad   |     $\iint$      |     \iiint      |     $\iiint$      |     \leftarrow      |     $\leftarrow$      |    \rightarrow     |    $\rightarrow$     | \leftrightarrow | $\leftrightarrow$ |<br>|   \Leftarrow   |   $\Leftarrow$   |   \Rightarrow   |   $\Rightarrow$   |   \Leftrightarrow   |   $\Leftrightarrow$   |   \longleftarrow   |   $\longleftarrow$   | \longrightarrow | $\longrightarrow$ | \longleftrightarrow | $\longleftrightarrow$ |<br>| \Longleftarrow | $\Longleftarrow$ | \Longrightarrow | $\Longrightarrow$ | \Longleftrightarrow | $\Longleftrightarrow$ | \xleftarrow{x+y+z} | $\xleftarrow{x+y+z}$ |</p>
+<ul>
+<li>样例</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">代码</th>
+<th align="center">符号</th>
+<th align="center">代码</th>
+<th align="center">符号</th>
+<th align="center">代码</th>
+<th align="center">符号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">\sum_{i=1}^ni\quad</td>
+<td align="center">$\sum_{i=1}^ni\quad$</td>
+<td align="center">\sum\limits_{i=1}^ni\quad</td>
+<td align="center">$\sum\limits_{i=1}^ni\quad$</td>
+<td align="center">\sum\nolimits_{i=1}^ni\quad</td>
+<td align="center">$\sum\nolimits_{i=1}^ni\quad$</td>
+</tr>
+<tr>
+<td align="center">\prod_{i=1}^n\quad</td>
+<td align="center">$\prod_{i=1}^n\quad$</td>
+<td align="center">\prod\limits_{i=1}^n\quad</td>
+<td align="center">$\prod\limits_{i=1}^n\quad$</td>
+<td align="center">\prod\nolimits_{i=1}^n\quad</td>
+<td align="center">$\prod\nolimits_{i=1}^n\quad$</td>
+</tr>
+<tr>
+<td align="center">\lim_{x\to0}x^2\quad</td>
+<td align="center">$\lim_{x\to0}x^2\quad$</td>
+<td align="center">\lim\limits_{x\to0}x^2\quad</td>
+<td align="center">$\lim\limits_{x\to0}x^2\quad$</td>
+<td align="center">\lim\nolimits_{x\to0}x^2\quad</td>
+<td align="center">$\lim\nolimits_{x\to0}x^2\quad$</td>
+</tr>
+<tr>
+<td align="center">\int_a^bx^2dx</td>
+<td align="center">$\int_a^bx^2dx$</td>
+<td align="center">\int\limits_a^bx^2dx</td>
+<td align="center">$\int\limits_a^bx^2dx$</td>
+<td align="center">\int\nolimits_a^bx^2dx</td>
+<td align="center">$\int\nolimits_a^bx^2dx$</td>
+</tr>
+</tbody></table>
+<p>[ \int\int\quad \int\int\int\quad \int\int\int\int\quad \int\dots\int ]<br><code>\[ \int\int\quad \int\int\int\quad \int\int\int\int\quad \int\dots\int \]</code></p>
+<ul>
+<li>注音和标注</li>
+</ul>
+<p>$<br>\bar{x}<br>\vec{x}<br>\hat{x}<br>\check{x}<br>\acute{x}<br>\grave{x}<br>\tilde{x}<br>\breve{x}<br>\mathring{x}<br>\dot{x}<br>\ddot{x}<br>$</p>
+<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">\bar&#123;x&#125;
+\vec&#123;x&#125;
+\hat&#123;x&#125;
+\check&#123;x&#125;
+\acute&#123;x&#125;
+\grave&#123;x&#125;
+\tilde&#123;x&#125;
+\breve&#123;x&#125;
+\mathring&#123;x&#125;
+\dot&#123;x&#125;
+\ddot&#123;x&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<ul>
+<li>分隔符</li>
+</ul>
+<p>$<br>\overline{xxx}<br>\underline{xxx}<br>\overleftarrow{xxx}<br>\underleftarrow{xxx}<br>\overrightarrow{xxx}<br>\underrightarrow{xxx}<br>\overleftrightarrow{xxx}<br>\underleftrightarrow{xxx}<br>\overbrace{xxx}             %brace 大括号<br>\underbrace{xxx}<br>\widehat{xxx}               %hat  帽<br>\widetilde{xxx}<br>$</p>
+<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">\overline&#123;xxx&#125;
+\underline&#123;xxx&#125;
+\overleftarrow&#123;xxx&#125;
+\underleftarrow&#123;xxx&#125;
+\overrightarrow&#123;xxx&#125;
+\underrightarrow&#123;xxx&#125;
+\overleftrightarrow&#123;xxx&#125;
+\underleftrightarrow&#123;xxx&#125;
+\overbrace&#123;xxx&#125;             %brace 大括号
+\underbrace&#123;xxx&#125;
+\widehat&#123;xxx&#125;               %hat  帽
+\widetilde&#123;xxx&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<p>[<br>\Bigg(<br>\bigg(<br>\Big(<br>\big(<br>(x)<br>\big)<br>\Big)<br>\bigg)<br>\Bigg)\quad<br>]</p>
+<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">\[
+    \Bigg(
+        \bigg(
+            \Big(
+                \big(
+                    (x)
+                \big)
+            \Big)
+        \bigg)
+    \Bigg)\quad
+\]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<p>[<br>\Bigg[<br>\bigg[<br>\Big[<br>\big[<br>[x]<br>\big]<br>\Big]<br>\bigg]<br>\Bigg]\quad<br>]</p>
+<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">\[
+    \Bigg[
+        \bigg[
+            \Big[
+                \big[
+                    [x]
+                \big]
+            \Big]
+        \bigg]
+    \Bigg]\quad
+\]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<p>[<br>\Bigg\langle<br>\bigg\langle<br>\Big\langle<br>\big\langle<br>\langle x \rangle<br>\big\rangle<br>\Big\rangle<br>\bigg\rangle<br>\Bigg\rangle\quad<br>]</p>
+<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">\[
+    \Bigg\langle
+        \bigg\langle
+            \Big\langle
+                \big\langle
+                    \langle x \rangle
+                \big\rangle
+            \Big\rangle
+        \bigg\rangle
+    \Bigg\rangle\quad
+\]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<p>[<br>\Bigg\lvert<br>\bigg\lvert<br>\Big\lvert<br>\big\lvert<br>\lvert x \rvert<br>\big\rvert<br>\Big\rvert<br>\bigg\rvert<br>\Bigg\rvert\quad<br>]</p>
+<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">\[
+    \Bigg\lvert
+        \bigg\lvert
+            \Big\lvert
+                \big\lvert
+                    \lvert x \rvert
+                \big\rvert
+            \Big\rvert
+        \bigg\rvert
+    \Bigg\rvert\quad
+\]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<p>[<br>\Bigg\lVert<br>\bigg\lVert<br>\Big\lVert<br>\big\lVert<br>\lVert x \rVert<br>\big\rVert<br>\Big\rVert<br>\bigg\rVert<br>\Bigg\rVert<br>]</p>
+<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">\[
+    \Bigg\lVert
+        \bigg\lVert
+            \Big\lVert
+                \big\lVert
+                    \lVert x \rVert
+                \big\rVert
+            \Big\rVert
+        \bigg\rVert
+    \Bigg\rVert
+\]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<ul>
+<li>省略号</li>
+</ul>
+<p>[ \dots , \cdots , \vdots ,\ddots ]</p>
+<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">\[  \dots , \cdots , \vdots ,\ddots \]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+
+<ul>
+<li>空白间距</li>
+</ul>
+<p>$<br>|,| \<br>|:| \<br>|;| \<br>|\quad| \<br>|\qquad| \<br>|!|<br>$</p>
+<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">|\,|
+|\:|
+|\;|
+|\quad|
+|\qquad|
+|\!|<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<ul>
+<li>矩阵</li>
+</ul>
+<blockquote>
+<p>居顶、居中(缺省) 、居底，分别用 t, c, b 来表示；<br>列对齐也有三种方式：居左、居中、居右，分别用 l, c, r 表示。<br>\\ 和&amp; 用来分隔行和列。</p>
+</blockquote>
+<p>[<br>\begin{array}{ccc}<br>x_1 &amp; x_2 &amp; \dots \\<br>x_3 &amp; x_4 &amp; \dots \\<br>\vdots &amp; \vdots &amp; \ddots<br>\end{array}<br>]</p>
+<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">\[
+    \begin&#123;array&#125;&#123;ccc&#125;
+        x_1 &amp; x_2 &amp; \dots \\\\
+        x_3 &amp; x_4 &amp; \dots \\\\
+        \vdots &amp; \vdots &amp; \ddots
+    \end&#123;array&#125;
+\]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<p>[<br>\begin{pmatrix} a&amp;b \\ c&amp;d \end{pmatrix} \quad<br>\begin{bmatrix} a&amp;b \\ c&amp;d \end{bmatrix} \quad<br>\begin{Bmatrix} a&amp;b \\ c&amp;d \end{Bmatrix} \quad<br>\begin{vmatrix} a&amp;b \\ c&amp;d \end{vmatrix} \quad<br>\begin{Vmatrix} a&amp;b \\ c&amp;d \end{Vmatrix}<br>]</p>
+<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">\[
+    \begin&#123;pmatrix&#125; a&amp;b \\\\ c&amp;d \end&#123;pmatrix&#125; \quad
+    \begin&#123;bmatrix&#125; a&amp;b \\\\ c&amp;d \end&#123;bmatrix&#125; \quad
+    \begin&#123;Bmatrix&#125; a&amp;b \\\\ c&amp;d \end&#123;Bmatrix&#125; \quad
+    \begin&#123;vmatrix&#125; a&amp;b \\\\ c&amp;d \end&#123;vmatrix&#125; \quad
+    \begin&#123;Vmatrix&#125; a&amp;b \\\\ c&amp;d \end&#123;Vmatrix&#125;
+\]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<p>Marry has a little matrix ( \begin{smallmatrix}<br>a&amp;b\\c&amp;d \end{smallmatrix} ) .</p>
+<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">Marry has a little matrix \( \begin&#123;smallmatrix&#125;
+a&amp;b\\\\c&amp;d \end&#123;smallmatrix&#125; \) .<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
+
+<ul>
+<li>多行公式<br>– 长公式<br>$$<br>x = a+b+c+ \\<br>d+e+f+g<br>$$</li>
+</ul>
+<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">x &#x3D; a+b+c+ \\\\
+d+e+f+g<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
+
+<p>[ \begin{split}<br>x =a+b+c+{} \\<br>d+e+f+g<br>\end{split} ]</p>
+<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">\[ \begin&#123;split&#125;
+x &#x3D;a+b+c+&#123;&#125; \\\\
+d+e+f+g
+\end&#123;split&#125; \]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<p>– 公式组</p>
+<p>$$<br>\begin{gather}<br>a = b+c+d \\<br>x = y+z<br>\end{gather} \<br>\begin{align}<br>a &amp;= b+c+d \<br>x &amp;= y+z<br>\end{align}<br>$$</p>
+<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">\begin&#123;gather&#125;
+a &#x3D; b+c+d \\\\
+x &#x3D; y+z
+\end&#123;gather&#125; \\
+\begin&#123;align&#125;
+a &amp;&#x3D; b+c+d \\
+x &amp;&#x3D; y+z
+\end&#123;align&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<ul>
+<li>数学字体<br>[<br>\begin{equation}<br>\mathrm{A}\quad<br>\mathsf{A}\quad<br>\mathtt{A}\quad<br>\mathcal{A}\quad<br>\mathbf{A}\quad<br>\mathit{A}\quad<br>\mathbb{A}\quad<br>\mathfrak{A}\quad<br>\mathscr{A}\quad<br>\end{equation} ]</li>
+</ul>
+<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">\[
+\begin&#123;equation&#125;
+\mathrm&#123;A&#125;\quad
+\mathsf&#123;A&#125;\quad
+\mathtt&#123;A&#125;\quad
+\mathcal&#123;A&#125;\quad
+\mathbf&#123;A&#125;\quad
+\mathit&#123;A&#125;\quad
+\mathbb&#123;A&#125;\quad
+\mathfrak&#123;A&#125;\quad
+\mathscr&#123;A&#125;\quad
+\end&#123;equation&#125; \]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Markdown/">Markdown</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Markdown/Math/">Math</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Markdown/">Markdown</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Math/">Math</a>
+                    
+                  </div>
+                
+              </div>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/01/31/ACM/%E6%95%B0%E5%AD%A6%E7%AE%97%E6%B3%95/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">数学算法</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/10/10/Python/Django/%E5%88%9D%E5%A7%8BDjango/">
+                        <span class="hidden-mobile">初识Django</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"XFEf335X2GvXbf3lsXBVp0mL-gzGzoHsz","appKey":"qIcEeNldPCNzbVSpr6cvRSmR","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"https://xfef335x.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":true},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://little-soul.github.io/" target="_blank" rel="nofollow noopener"><span>LiSoul</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/LIttle-soul/" target="_blank" rel="nofollow noopener"><span>github</span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+    
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- KaTeX -->
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0/dist/katex.min.css" />
+  
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?b7dd1be358088afd106bff2e9d064a6b";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+<!-- hexo injector body_end start --><script
+        src='https://cdn.bootcdn.net/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js'
+        color='183,20,147'
+        pointColor='160,0,100'
+        opacity='0.8'
+        zIndex='-1'
+        count='500'
+    ></script><!-- hexo injector body_end end --></body>
+</html>

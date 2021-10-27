@@ -1,0 +1,726 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/image/icon/icon.jpg">
+  <link rel="icon" href="/image/icon/icon.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="一只小菜鸟的学习日志">
+  <meta name="author" content="Little-Soul">
+  <meta name="keywords" content="lsoj,lisoul,LiSoul,LSOJ,renchenghui,Little-Soul,littlesoul">
+  <meta name="description" content="筛质数埃氏筛法(埃拉托斯特尼筛法)const int N &#x3D; 1e7;&#x2F;&#x2F;筛的范围 bool st[N + 10];&#x2F;&#x2F;判断是否为质数 初始为false false为质数 true为非质数 int save[N + 10], idx &#x3D; 0;&#x2F;&#x2F;用来存储质数 st[0] &#x3D; st[1] &#x3D; true">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数学算法">
+<meta property="og:url" content="https://little-soul.github.io/01/31/ACM/%E6%95%B0%E5%AD%A6%E7%AE%97%E6%B3%95/">
+<meta property="og:site_name" content="LiSoul">
+<meta property="og:description" content="筛质数埃氏筛法(埃拉托斯特尼筛法)const int N &#x3D; 1e7;&#x2F;&#x2F;筛的范围 bool st[N + 10];&#x2F;&#x2F;判断是否为质数 初始为false false为质数 true为非质数 int save[N + 10], idx &#x3D; 0;&#x2F;&#x2F;用来存储质数 st[0] &#x3D; st[1] &#x3D; true">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-01-30T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-10-27T13:20:01.771Z">
+<meta property="article:author" content="LiSoul">
+<meta property="article:tag" content="C&#x2F;C++">
+<meta property="article:tag" content="ACM">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>数学算法 - LiSoul</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      
+        
+          
+          
+          
+        
+        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/themes/prism-okaidia.min.css" />
+      
+      
+        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/plugins/line-numbers/prism-line-numbers.min.css" />
+      
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"little-soul.github.io","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"b7dd1be358088afd106bff2e9d064a6b","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"XFEf335X2GvXbf3lsXBVp0mL-gzGzoHsz","app_key":"qIcEeNldPCNzbVSpr6cvRSmR","server_url":"https://xfef335x.lc-cn-n1-shared.com","path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start --><script src='/js/FunnyTitle.js'></script><script src='/live2d-widget/autoload.js'></script><link rel="stylesheet" href='/css/mouse.css'><link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css'>
+  <link rel='stylesheet' href='/css/live2d.css'><script src='/js/WaifuMove.js'></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>LiSoul</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/image/background/background11.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="数学算法">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Little-Soul
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-01-31 00:00" pubdate>
+        2021年1月31日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      9 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">数学算法</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：17 分钟前
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h2 id="筛质数"><a href="#筛质数" class="headerlink" title="筛质数"></a>筛质数</h2><h3 id="埃氏筛法-埃拉托斯特尼筛法"><a href="#埃氏筛法-埃拉托斯特尼筛法" class="headerlink" title="埃氏筛法(埃拉托斯特尼筛法)"></a>埃氏筛法(埃拉托斯特尼筛法)</h3><div class="code-wrapper"><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">const int N &#x3D; 1e7;&#x2F;&#x2F;筛的范围
+bool st[N + 10];&#x2F;&#x2F;判断是否为质数 初始为false false为质数 true为非质数
+int save[N + 10], idx &#x3D; 0;&#x2F;&#x2F;用来存储质数
+st[0] &#x3D; st[1] &#x3D; true;
+for (int i &#x3D; 2; i &lt;&#x3D; N; i ++ )&#123;
+	if (!st[i]) save[idx ++ ] &#x3D; i;
+	else continue;&#x2F;&#x2F;优化循环节省时间
+	for (int j &#x3D; i * 2; j &lt;&#x3D; N; j +&#x3D; i )
+		st[j] &#x3D; true;
+&#125;
+idx --;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<h3 id="线性筛法-欧拉筛法"><a href="#线性筛法-欧拉筛法" class="headerlink" title="线性筛法(欧拉筛法)"></a>线性筛法(欧拉筛法)</h3><div class="code-wrapper"><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">const int N &#x3D; 1e7;&#x2F;&#x2F;筛要的范围
+bool st[N + 10];&#x2F;&#x2F;判断是否为质数 初始为false false为质数 true为非质数
+int save[N + 10], idx &#x3D; 0;&#x2F;&#x2F;用来存储质数
+a[0] &#x3D; a[1] &#x3D; true;
+for (int i &#x3D; 2; i &lt;&#x3D; N; i ++ )&#123;
+	if (!st[i]) save[idx ++ ] &#x3D; i;
+	for (int j &#x3D; 0; save[j] * i &lt;&#x3D; N; j ++ )&#123;
+        st[save[j]*i] &#x3D; true;
+        if (i % save[j] &#x3D;&#x3D; 0) break;&#x2F;&#x2F;优化循环节省时间 每个数只删一次
+    &#125;
+
+&#125;
+idx --;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<h1 id="博弈论详解"><a href="#博弈论详解" class="headerlink" title="博弈论详解"></a>博弈论详解</h1><h2 id="一-巴什博奕（Bash-Game）"><a href="#一-巴什博奕（Bash-Game）" class="headerlink" title="一. 巴什博奕（Bash Game）"></a>一. 巴什博奕（Bash Game）</h2><blockquote>
+<p>只有一堆 n 个物品， 两人轮流从这堆物品中取物，规定每次至少取一个，最多取 m 个。最后取光者得胜。</p>
+</blockquote>
+<div class="code-wrapper"><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
+#define _MAX 10000
+using namespace std;
+
+int a[_MAX], b[_MAX];
+
+int bash(int N, int K)&#123;
+	if(N % (K + 1) &#x3D;&#x3D; 0)&#123;
+		return 2;
+	&#125;
+	return 1;
+&#125;
+
+int main()&#123;
+	int T;
+	scanf(&quot;%d&quot;, &amp;T);
+	for(int i &#x3D; 0; i &lt; T; i++)&#123;
+		scanf(&quot;%d%d&quot;, a + i, b + i);
+	&#125;
+	for(int i &#x3D; 0; i &lt; T; i++)&#123;
+		if(bash(a[i], b[i]) &#x3D;&#x3D; 1)&#123;
+			puts(&quot;A&quot;);
+		&#125;else&#123;
+			puts(&quot;B&quot;);
+		&#125;
+	&#125;
+	return 0;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<h2 id="二-威佐夫博弈（Wythoff-Game）"><a href="#二-威佐夫博弈（Wythoff-Game）" class="headerlink" title="二. 威佐夫博弈（Wythoff Game）"></a>二. 威佐夫博弈（Wythoff Game）</h2><blockquote>
+<p>有两堆各若干个物品，两个人轮流从某一堆或同时从两堆中取同样多的物品，规定每次至少取一个，多者不限，最后取光者得胜。</p>
+</blockquote>
+<div class="code-wrapper"><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
+using namespace std;
+
+int main()&#123;
+	int t, a, b, m, k;
+    scanf(&quot;%d&quot;, &amp;t);
+    while(t--)&#123;
+        scanf(&quot;%d%d&quot;, &amp;a, &amp;b);
+        if(a &gt; b)&#123;
+            a ^&#x3D; b;
+            b ^&#x3D; a;
+            a ^&#x3D; b;
+        &#125;
+        m &#x3D; b - a;
+        k &#x3D; (int)(m * (1 + sqrt(5)) &#x2F; 2.0);
+        printf(&quot;%s\n&quot;, a &#x3D;&#x3D; k ? &quot;B&quot; : &quot;A&quot;);
+    &#125;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<h2 id="三-尼姆博弈（Nimm-Game）"><a href="#三-尼姆博弈（Nimm-Game）" class="headerlink" title="三. 尼姆博弈（Nimm Game）"></a>三. 尼姆博弈（Nimm Game）</h2><blockquote>
+<p>有三堆各若干个物品，两个人轮流从某一堆取任意多的物品，规定每次至少取一个，多者不限，最后取光者获胜。</p>
+</blockquote>
+<div class="code-wrapper"><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
+using namespace std;
+
+int main()&#123;
+	int N, stone, tag &#x3D; 0;
+    scanf(&quot;%d&quot;, &amp;N);
+    while(N--)&#123;
+        scanf(&quot;%d&quot;, &amp;stone);
+        tag ^&#x3D; stone;
+    &#125;
+    printf(&quot;%c\n&quot;, tag &#x3D;&#x3D; 0 ? &#39;B&#39; : &#39;A&#39;);
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<h2 id="四-SG-函数"><a href="#四-SG-函数" class="headerlink" title="四. SG 函数"></a>四. SG 函数</h2><ul>
+<li>SG 打表</li>
+</ul>
+<div class="code-wrapper"><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">const int MAX_DIG &#x3D; 64;
+
+int f[MAX_DIG];         &#x2F;&#x2F; 可以取走的石子个数
+int sg[MAX_DIG];        &#x2F;&#x2F; 0~n的SG函数值
+int has[MAX_DIG];       &#x2F;&#x2F; mex&#123;&#125;
+
+void getSG(int n)&#123;
+    memset(sg, 0, sizeof(sg));
+    for(int i &#x3D; 1; i &lt;&#x3D; n; i++)&#123;
+        memset(has,0,sizeof(has));
+        for(int j &#x3D; 1; f[j] &lt;&#x3D; i; j++)&#123;
+            has[sg[i - f[j]]] &#x3D; 1;
+        &#125;
+        for(int j &#x3D; 0; j &lt;&#x3D; n; j++)&#123;        &#x2F;&#x2F; 求mes&#123;&#125;中未出现的最小的非负整数
+            if(has[j] &#x3D;&#x3D; 0)&#123;
+                sg[i] &#x3D; j;
+                break;
+            &#125;
+        &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<ul>
+<li>SG DFS</li>
+</ul>
+<div class="code-wrapper"><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">const int MAX_DIG &#x3D; 64;
+
+&#x2F;&#x2F; DFS
+&#x2F;&#x2F; 注意S数组要按从小到大排序SG函数要初始化为-1 对于每个集合只需初始化1遍
+&#x2F;&#x2F; n是集合s的大小S[i]是定义的特殊取法规则数组
+int s[MAX_DIG];
+int sg[MAX_DIG * 100];
+int n;
+
+int SG_dfs(int x)&#123;
+    if(sg[x] !&#x3D; -1)&#123;
+        return sg[x];
+    &#125;
+    bool vis[MAX_DIG];
+    memset(vis, 0, sizeof(vis));
+    for(int i &#x3D; 0; i &lt; n; i++)&#123;
+        if(x &gt;&#x3D; s[i])&#123;
+            SG_dfs(x - s[i]);
+            vis[sg[x - s[i]]] &#x3D; 1;
+        &#125;
+    &#125;
+    int e;
+    for(int i &#x3D; 0;;i++)&#123;
+        if(!vis[i])&#123;
+            e &#x3D; i;
+            break;
+        &#125;
+    &#125;
+    return sg[x] &#x3D; e;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/C-C/">C/C++</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/C-C/">C/C++</a>
+                    
+                      <a class="hover-with-bg" href="/tags/ACM/">ACM</a>
+                    
+                  </div>
+                
+              </div>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/04/30/Linux/%E9%AB%98%E8%81%8C%E7%BB%84%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E9%A2%98%E5%BA%93(%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2)/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">高职组软件测试赛题库(环境部署)</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/11/10/Markdown/Math/">
+                        <span class="hidden-mobile">Marldown之数学公式详解</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"XFEf335X2GvXbf3lsXBVp0mL-gzGzoHsz","appKey":"qIcEeNldPCNzbVSpr6cvRSmR","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"https://xfef335x.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":true},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://little-soul.github.io/" target="_blank" rel="nofollow noopener"><span>LiSoul</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/LIttle-soul/" target="_blank" rel="nofollow noopener"><span>github</span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+    
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- KaTeX -->
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0/dist/katex.min.css" />
+  
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?b7dd1be358088afd106bff2e9d064a6b";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+<!-- hexo injector body_end start --><script
+        src='https://cdn.bootcdn.net/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js'
+        color='183,20,147'
+        pointColor='160,0,100'
+        opacity='0.8'
+        zIndex='-1'
+        count='500'
+    ></script><!-- hexo injector body_end end --></body>
+</html>

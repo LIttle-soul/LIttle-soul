@@ -1,0 +1,831 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/image/icon/icon.jpg">
+  <link rel="icon" href="/image/icon/icon.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="一只小菜鸟的学习日志">
+  <meta name="author" content="Little-Soul">
+  <meta name="keywords" content="lsoj,lisoul,LiSoul,LSOJ,renchenghui,Little-Soul,littlesoul">
+  <meta name="description" content="vector, 变长数组，倍增的思想     size()  返回元素个数     empty()  返回是否为空     clear()  清空     front()&#x2F;back()     push_back()&#x2F;pop_back()     begin()&#x2F;end()     []     支持比较运算，按字典序  pair&lt;int, int&gt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="STL标准模板库">
+<meta property="og:url" content="https://little-soul.github.io/01/31/ACM/STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/">
+<meta property="og:site_name" content="LiSoul">
+<meta property="og:description" content="vector, 变长数组，倍增的思想     size()  返回元素个数     empty()  返回是否为空     clear()  清空     front()&#x2F;back()     push_back()&#x2F;pop_back()     begin()&#x2F;end()     []     支持比较运算，按字典序  pair&lt;int, int&gt;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-01-30T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-10-27T13:13:49.221Z">
+<meta property="article:author" content="LiSoul">
+<meta property="article:tag" content="C&#x2F;C++">
+<meta property="article:tag" content="ACM">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>STL标准模板库 - LiSoul</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      
+        
+          
+          
+          
+        
+        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/themes/prism-okaidia.min.css" />
+      
+      
+        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/plugins/line-numbers/prism-line-numbers.min.css" />
+      
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"little-soul.github.io","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"b7dd1be358088afd106bff2e9d064a6b","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"XFEf335X2GvXbf3lsXBVp0mL-gzGzoHsz","app_key":"qIcEeNldPCNzbVSpr6cvRSmR","server_url":"https://xfef335x.lc-cn-n1-shared.com","path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start --><script src='/js/FunnyTitle.js'></script><script src='/live2d-widget/autoload.js'></script><link rel="stylesheet" href='/css/mouse.css'><link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css'>
+  <link rel='stylesheet' href='/css/live2d.css'><script src='/js/WaifuMove.js'></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>LiSoul</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/image/background/background11.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="STL标准模板库">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Little-Soul
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-01-31 00:00" pubdate>
+        2020年1月31日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      4.7k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      15 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">STL标准模板库</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：24 分钟前
+                
+              </p>
+            
+            <div class="markdown-body">
+              <div class="code-wrapper"><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">vector, 变长数组，倍增的思想
+    size()  返回元素个数
+    empty()  返回是否为空
+    clear()  清空
+    front()&#x2F;back()
+    push_back()&#x2F;pop_back()
+    begin()&#x2F;end()
+    []
+    支持比较运算，按字典序
+
+pair&lt;int, int&gt;
+    first, 第一个元素
+    second, 第二个元素
+    支持比较运算，以first为第一关键字，以second为第二关键字（字典序）
+
+string，字符串
+    size()&#x2F;length()  返回字符串长度
+    empty()
+    clear()
+    substr(起始下标，(子串长度))  返回子串
+    c_str()  返回字符串所在字符数组的起始地址
+
+queue, 队列
+    size()
+    empty()
+    push()  向队尾插入一个元素
+    front()  返回队头元素
+    back()  返回队尾元素
+    pop()  弹出队头元素
+
+priority_queue, 优先队列，默认是大根堆
+    push()  插入一个元素
+    top()  返回堆顶元素
+    pop()  弹出堆顶元素
+    定义成小根堆的方式：priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt;&gt; q;
+
+stack, 栈
+    size()
+    empty()
+    push()  向栈顶插入一个元素
+    top()  返回栈顶元素
+    pop()  弹出栈顶元素
+
+deque, 双端队列
+    size()
+    empty()
+    clear()
+    front()&#x2F;back()
+    push_back()&#x2F;pop_back()
+    push_front()&#x2F;pop_front()
+    begin()&#x2F;end()
+    []
+
+set, map, multiset, multimap, 基于平衡二叉树（红黑树），动态维护有序序列
+    size()
+    empty()
+    clear()
+    begin()&#x2F;end()
+    ++, -- 返回前驱和后继，时间复杂度 O(logn)
+
+    set&#x2F;multiset
+        insert()  插入一个数
+        find()  查找一个数
+        count()  返回某一个数的个数
+        erase()
+            (1) 输入是一个数x，删除所有x   O(k + logn)
+            (2) 输入一个迭代器，删除这个迭代器
+        lower_bound()&#x2F;upper_bound()
+            lower_bound(x)  返回大于等于x的最小的数的迭代器
+            upper_bound(x)  返回大于x的最小的数的迭代器
+    map&#x2F;multimap
+        insert()  插入的数是一个pair
+        erase()  输入的参数是pair或者迭代器
+        find()
+        []  注意multimap不支持此操作。 时间复杂度是 O(logn)
+        lower_bound()&#x2F;upper_bound()
+
+unordered_set, unordered_map, unordered_multiset, unordered_multimap, 哈希表
+    和上面类似，增删改查的时间复杂度是 O(1)
+    不支持 lower_bound()&#x2F;upper_bound()， 迭代器的++，--
+
+bitset, 圧位
+    bitset&lt;10000&gt; s;
+    ~, &amp;, |, ^
+    &gt;&gt;, &lt;&lt;
+    &#x3D;&#x3D;, !&#x3D;
+    []
+
+    count()  返回有多少个1
+
+    any()  判断是否至少有一个1
+    none()  判断是否全为0
+
+    set()  把所有位置成1
+    set(k, v)  将第k位变成v
+    reset()  把所有位变成0
+    flip()  等价于~
+    flip(k) 把第k位取反<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<h2 id="1-map"><a href="#1-map" class="headerlink" title="1. map"></a>1. map</h2><blockquote>
+<p>map 中所有元素的 key 的值必须是唯一的，multimap 则允许有重复的 Key 值。</p>
+</blockquote>
+<ul>
+<li>构建</li>
+</ul>
+<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">map&lt;string, long long&gt; m;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+
+<ul>
+<li>向 map 中插入元素</li>
+</ul>
+<div class="code-wrapper"><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">m[key]&#x3D;value;
+&#x2F;&#x2F;[key]操作是map很有特色的操作,如果在map中存在键值为key的元素对, 则返回该元素对的值域部分,否则将会创建一个键值为key的元素对,值域为默认值。所以可以用该操作向map中插入元素对或修改已经存在的元素对的值域部分。
+m.insert(male_pair(key,value));
+&#x2F;&#x2F;也可以直接调用insert方法插入元素对,insert操作会返回一个pair,当map中没有与key相匹配的键值时,其first是指向插入元素对的迭代器,其second为true;若map中已经存在与key相等的键值时,其first是指向该元素对的迭代器,second为false。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<ul>
+<li>查找元素</li>
+</ul>
+<div class="code-wrapper"><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int i&#x3D;m[key];
+&#x2F;&#x2F;要注意的是,当与该键值相匹配的元素对不存在时,会创建键值为key（当另一个元素是整形时，m[key]&#x3D;0）的元素对。
+map&lt;string, int&gt;::iterator it&#x3D;m.find(key);
+&#x2F;&#x2F;如果map中存在与key相匹配的键值时,find操作将返回指向该元素对的迭代器,否则,返回的迭代器等于map的end()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<ul>
+<li>删除元素</li>
+</ul>
+<div class="code-wrapper"><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F;erase的参数可以是key或者迭代器
+m.erase(key);
+&#x2F;&#x2F;删除与指定key键值相匹配的元素对,并返回被删除的元素的个数。
+m.erase(it);
+&#x2F;&#x2F;删除由迭代器it所指定的元素对,并返回指向下一个元素对的迭代器。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<ul>
+<li>map 的 upper_bound/lower_bound<blockquote>
+<p>iterator lower_bound( const key_type &amp;key ): 返回一个迭代器，指向键值&gt;= key 的第一个元素。<br>iterator upper_bound( const key_type &amp;key ):返回一个迭代器，指向键值&gt; key 的第一个元素。</p>
+</blockquote>
+</li>
+<li>其他简单操作</li>
+</ul>
+<div class="code-wrapper"><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">m.size();       &#x2F;&#x2F;返回元素个数
+m.empty();      &#x2F;&#x2F;判断是否为空
+m.clear();      &#x2F;&#x2F;清空所有元素
+m.begin();      &#x2F;&#x2F;返回首迭代器
+m.end();        &#x2F;&#x2F;返回尾迭代器<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<h1 id="2-C-queue"><a href="#2-C-queue" class="headerlink" title="2. C++ queue"></a>2. C++ queue</h1><blockquote>
+<p><strong><em><code>#include&lt;queue&gt;</code></em></strong><br>头文件 queue 里包含了循环队列 queue 和优先队列 priority_queue</p>
+</blockquote>
+<ul>
+<li><h4 id="循环队列-queue"><a href="#循环队列-queue" class="headerlink" title="循环队列 queue"></a>循环队列 queue</h4></li>
+</ul>
+<div class="code-wrapper"><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">queue&lt;int&gt; q;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+
+<ul>
+<li>front()：返回 queue 中第一个元素的引用。如果 queue 是常量，就返回一个常引用；如果 queue 为空，返回值是未定义的。</li>
+<li>back()：返回 queue 中最后一个元素的引用。如果 queue 是常量，就返回一个常引用；如果 queue 为空，返回值是未定义的。</li>
+<li>push(const T&amp; obj)：在 queue 的尾部添加一个元素的副本。这是通过调用底层容器的成员函数 push_back() 来完成的。</li>
+<li>push(T&amp;&amp; obj)：以移动的方式在 queue 的尾部添加元素。这是通过调用底层容器的具有右值引用参数的成员函数 push_back()来完成的。</li>
+<li>pop()：删除 queue 中的第一个元素。</li>
+<li>size()：返回 queue 中元素的个数。</li>
+<li>empty()：如果 queue 中没有元素的话，返回 true。</li>
+<li>emplace()：用传给 emplace() 的参数调用 T 的构造函数，在 queue 的尾部生成对象。</li>
+<li>swap(queue<T> &amp;other_q)：将当前 queue 中的元素和参数 queue 中的元素交换。它们需要包含相同类型的元素。也可以调用全局函数模板 swap() 来完成同样的操作。</li>
+<li><h4 id="优先队列-priority-queue"><a href="#优先队列-priority-queue" class="headerlink" title="优先队列 priority_queue"></a>优先队列 priority_queue</h4></li>
+</ul>
+<div class="code-wrapper"><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">priority_queue&lt;int&gt; q;&#x2F;&#x2F;大根堆（堆顶值最大）
+priority_queue&lt;int,vector&lt;int&gt;,greater&lt;int&gt; &gt; q;&#x2F;&#x2F;小根堆（堆顶值最小）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
+
+<blockquote>
+<p>注意 priority_queue 中储存的元素类型必须定义“小于号”（注意这里虽然是&lt;小于号，但实际上是大于号），较大的元素会被放在堆顶。内置的 int、string 等类型已经定义过“小于号”，若使用结构体则必须重载运算符。<br>由于 priority_queue 是按照从大到小排序所以重载运算符时也要反过来。</p>
+</blockquote>
+<h6 id="1-大根堆"><a href="#1-大根堆" class="headerlink" title="1. 大根堆"></a>1. 大根堆</h6><p><strong>重载“&lt;”运算符</strong></p>
+<blockquote>
+<p>下面的 poi 结构体保存了二维平面上的编号和坐标，比较大小时，先比较横坐标，再比较纵坐标，并考虑了精度误差。</p>
+</blockquote>
+<div class="code-wrapper"><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">struct poi&#123;
+    int id;
+    double x,y;
+&#125;;
+const double eps &#x3D; 1e-8;
+bool operator&lt;(const poi &amp;a,const poi &amp;b)&#123;
+    return a.x+eps&lt;b.x||a.x&lt;b.x+eps&amp;&amp;a.y&lt;b.y;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<h6 id="2-小根堆"><a href="#2-小根堆" class="headerlink" title="2. 小根堆"></a>2. 小根堆</h6><blockquote>
+<p>下面代码重载运算符之后定义了一个小根堆（堆顶元素值最小，其实就是从小到大排序）</p>
+</blockquote>
+<div class="code-wrapper"><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">struct node&#123;
+	int value ;
+	friend bool operator &lt; (node a , node b)
+	&#123;
+		return a.value &gt; b.value;
+	&#125;
+&#125;;
+priority_queue&lt;node&gt; q;
+
+&#x2F;&#x2F;------------------------------------------------
+
+struct node&#123;
+	int value ;
+	 bool operator &lt; (const node &amp;a) const
+	&#123;
+		return value &gt; a.value;
+	&#125;
+&#125;;
+priority_queue&lt;node&gt; q;
+
+&#x2F;&#x2F; 成员函数
+
+q.top();        &#x2F;&#x2F;访问堆顶元素
+q.empty();      &#x2F;&#x2F;检查是否为空
+q.size();       &#x2F;&#x2F;返回容纳的元素数
+q.push();       &#x2F;&#x2F;插入元素，并排序
+q.pop();        &#x2F;&#x2F;删除栈顶元素<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<h6 id="2-懒惰删除法"><a href="#2-懒惰删除法" class="headerlink" title="2. 懒惰删除法"></a>2. 懒惰删除法</h6><blockquote>
+<p>如果是手写的堆是支持删除任意一个元素，而 STL 却不支持这种操作所以我们可以用懒惰删除法<br>懒惰删除法又称延迟删除法，是一种应对策略。当遇到删除操作时，仅在优先队列之外做一些特殊的记录，用于辨别是否堆中的元素被删除。当从堆顶取出元素时判断是否已经被删除，若是，我们重新取一个最值。换言之，元素的“删除”推迟到堆顶执行。<br>比如“堆优化的 Dijkstra 算法”中当某个元素首次被取出时就达到了最短路，当我们再次取出这个元素时我们不会重新进行扩展，而是使用一个 bool 数组判断“是否进行过扩展”，其本质还是懒惰删除法的应用。</p>
+</blockquote>
+<ul>
+<li><h4 id="双端队列-deque"><a href="#双端队列-deque" class="headerlink" title="双端队列 deque"></a>双端队列 deque</h4>头文件 deque</li>
+</ul>
+<div class="code-wrapper"><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;deque&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+
+<blockquote>
+<p>双端队列 deque 支持队列两端高效地插入或删除元素的连续性存储空间。与 vector 相比，deque 在头部增删元素只需要 O ( 1 ) O(1)O(1)，并且 deque 像数组一样支持下标随机访问。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">[]</th>
+<th align="center">随机访问 O(1)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">begin/end</td>
+<td align="center">deque 的头/尾迭代器 O(1)</td>
+</tr>
+<tr>
+<td align="center">front/back</td>
+<td align="center">队头/队尾元素 O(1)</td>
+</tr>
+<tr>
+<td align="center">push_front</td>
+<td align="center">从队头入队 O(1)</td>
+</tr>
+<tr>
+<td align="center">push_back</td>
+<td align="center">从队尾入队 O(1)</td>
+</tr>
+<tr>
+<td align="center">pop_front</td>
+<td align="center">从队头出队 O(1)</td>
+</tr>
+<tr>
+<td align="center">pop_back</td>
+<td align="center">从队尾出队 O(1)</td>
+</tr>
+<tr>
+<td align="center">clear</td>
+<td align="center">清空队列 O(n)</td>
+</tr>
+</tbody></table>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/ACM/">ACM</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/C-C/">C/C++</a>
+                    
+                      <a class="hover-with-bg" href="/tags/ACM/">ACM</a>
+                    
+                  </div>
+                
+              </div>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/01/31/ACM/C++%E5%A4%B4%E6%96%87%E4%BB%B6%E6%B1%87%E6%80%BB/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">C/C++头文件汇总</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/01/30/ACM/%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E4%BC%98%E5%8C%96/">
+                        <span class="hidden-mobile">C/C++输入输出加速</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"XFEf335X2GvXbf3lsXBVp0mL-gzGzoHsz","appKey":"qIcEeNldPCNzbVSpr6cvRSmR","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"https://xfef335x.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":true},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://little-soul.github.io/" target="_blank" rel="nofollow noopener"><span>LiSoul</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/LIttle-soul/" target="_blank" rel="nofollow noopener"><span>github</span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+    
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- KaTeX -->
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0/dist/katex.min.css" />
+  
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?b7dd1be358088afd106bff2e9d064a6b";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+<!-- hexo injector body_end start --><script
+        src='https://cdn.bootcdn.net/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js'
+        color='183,20,147'
+        pointColor='160,0,100'
+        opacity='0.8'
+        zIndex='-1'
+        count='500'
+    ></script><!-- hexo injector body_end end --></body>
+</html>
