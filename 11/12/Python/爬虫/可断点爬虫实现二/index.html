@@ -1,0 +1,830 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/image/icon/icon.jpg">
+  <link rel="icon" href="/image/icon/icon.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="一只小菜鸟的学习日志">
+  <meta name="author" content="LiSoul">
+  <meta name="keywords" content="lsoj,lisoul,LiSoul,LSOJ,renchenghui,Little-Soul,littlesoul">
+  <meta name="description" content="相信看到这里的同学们已经看过我写的第一篇文章了，那接下来这一篇我们主要来讲讲如何将上一篇的代码组合起来，能够使我们的代码最优化   1. 算法  讲到这里呢，我们先来谈谈两种算法。 相信学过数据结构的人都知到在树的遍历里面有两种很经典的搜索算法，他们分别是 深度优先搜索 和 广度优先搜索，如果说你学过这一部分的知识的话，那么就可以跳过这一部分内容了，如果说没有学过，那么不要着急，此处会慢慢给大家">
+<meta property="og:type" content="article">
+<meta property="og:title" content="可断点爬虫实现（二）">
+<meta property="og:url" content="https://little-soul.github.io/11/12/Python/%E7%88%AC%E8%99%AB/%E5%8F%AF%E6%96%AD%E7%82%B9%E7%88%AC%E8%99%AB%E5%AE%9E%E7%8E%B0%E4%BA%8C/">
+<meta property="og:site_name" content="LiSoul">
+<meta property="og:description" content="相信看到这里的同学们已经看过我写的第一篇文章了，那接下来这一篇我们主要来讲讲如何将上一篇的代码组合起来，能够使我们的代码最优化   1. 算法  讲到这里呢，我们先来谈谈两种算法。 相信学过数据结构的人都知到在树的遍历里面有两种很经典的搜索算法，他们分别是 深度优先搜索 和 广度优先搜索，如果说你学过这一部分的知识的话，那么就可以跳过这一部分内容了，如果说没有学过，那么不要着急，此处会慢慢给大家">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-11-12T04:00:00.000Z">
+<meta property="article:modified_time" content="2021-11-11T08:15:06.169Z">
+<meta property="article:author" content="LiSoul">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="爬虫">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>可断点爬虫实现（二） - LiSoul</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      
+        
+          
+          
+          
+        
+        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/themes/prism-okaidia.min.css" />
+      
+      
+        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/plugins/line-numbers/prism-line-numbers.min.css" />
+      
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/toubudaziji.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/daziyanse.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/gundongtiao.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/shubiao.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"little-soul.github.io","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"b7dd1be358088afd106bff2e9d064a6b","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"XFEf335X2GvXbf3lsXBVp0mL-gzGzoHsz","app_key":"qIcEeNldPCNzbVSpr6cvRSmR","server_url":"https://xfef335x.lc-cn-n1-shared.com","path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<script src='/js/FunnyTitle.js'></script><script src='/live2d-widget/autoload.js'></script><link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css'>
+  <link rel='stylesheet' href='/css/live2d.css'><script src='/js/WaifuMove.js'></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>LiSoul</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/image/background/background11.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="可断点爬虫实现（二）">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      LiSoul
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-11-12 12:00" pubdate>
+        2021年11月12日 中午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      5k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      16 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">可断点爬虫实现（二）</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：1 小时前
+                
+              </p>
+            
+            <div class="markdown-body">
+              <blockquote>
+<p>相信看到这里的同学们已经看过我写的第一篇文章了，那接下来这一篇我们主要来讲讲如何将上一篇的代码组合起来，能够使我们的代码最优化</p>
+</blockquote>
+<h4 id="1-算法"><a class="markdownIt-Anchor" href="#1-算法"></a> 1. 算法</h4>
+<blockquote>
+<p>讲到这里呢，我们先来谈谈两种算法。<br />
+相信学过数据结构的人都知到在树的遍历里面有两种很经典的搜索算法，他们分别是 <code>深度优先搜索</code> 和 <code>广度优先搜索</code>，如果说你学过这一部分的知识的话，那么就可以跳过这一部分内容了，如果说没有学过，那么不要着急，此处会慢慢给大家分析分析。</p>
+</blockquote>
+<ul>
+<li>
+<p>深度优先搜索（DFS）</p>
+<blockquote>
+<p>深度优先搜索，根据它的字面意思可以了解到它是会优先不断地向下一层去搜索，直到这棵树再没有子节点，程序就会返回上一个层去搜索另一个节点。它的运行很类似于树的前序遍历。</p>
+</blockquote>
+</li>
+<li>
+<p>广度优先搜索（BFS）</p>
+<blockquote>
+<p>广度优先搜索每次运行都会先遍历完当前一层的所有节点，然后再去遍历下一层，它的运行过程很类似于树的层序遍历。</p>
+</blockquote>
+</li>
+<li>
+<p>代码实现</p>
+</li>
+</ul>
+<div class="code-wrapper"><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F; C++代码实现模板
+#include &lt;bits&#x2F;stdc++.h&gt;
+using namespace std;
+
+map&lt;int, vector&lt;int&gt;&gt; L;
+
+&#x2F;&#x2F; 深度优先搜索实现
+void dfs(int node)
+&#123;
+    for (int item : L[node])
+    &#123;
+        cout &lt;&lt; item &lt;&lt; endl;
+        if (!L[item].empty())
+        &#123;
+            dfs(item);
+        &#125;
+    &#125;
+&#125;
+
+&#x2F;&#x2F; 广度优先搜索实现
+void bfs()
+&#123;
+    queue&lt;int&gt; ll;
+    ll.push(1);
+    while (!ll.empty())
+    &#123;
+        int temp &#x3D; ll.front();
+        ll.pop();
+        for (int item : L[temp])
+        &#123;
+            ll.push(item);
+            cout &lt;&lt; item &lt;&lt; endl;
+        &#125;
+    &#125;
+&#125;
+
+int main()
+&#123;
+    L[1] &#x3D; &#123;2, 3, 4&#125;;
+    L[2] &#x3D; &#123;5, 6, 7&#125;;
+    L[3] &#x3D; &#123;8, 9, 10&#125;;
+    L[4] &#x3D; &#123;11, 12, 13&#125;;
+    dfs(1);
+    cout &lt;&lt; &quot;---------------&quot; &lt;&lt; endl;
+    bfs();
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># python 代码模板实现</span>
+L <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">]</span>
+<span class="token punctuation">]</span>
+
+<span class="token comment"># 深度优先搜索</span>
+<span class="token keyword">def</span> <span class="token function">dfs</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> item <span class="token keyword">in</span> L<span class="token punctuation">[</span>node<span class="token punctuation">]</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> item <span class="token operator">&lt;</span> <span class="token builtin">len</span><span class="token punctuation">(</span>L<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            dfs<span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+
+<span class="token comment"># 广度优先搜索</span>
+<span class="token keyword">def</span> <span class="token function">bfs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    ll <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    ll<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token keyword">while</span> ll<span class="token punctuation">:</span>
+        temp <span class="token operator">=</span> ll<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+        ll<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> item <span class="token keyword">in</span> L<span class="token punctuation">[</span>temp<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> item <span class="token operator">&lt;</span> <span class="token builtin">len</span><span class="token punctuation">(</span>L<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                ll<span class="token punctuation">.</span>append<span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    dfs<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'--------------------'</span><span class="token punctuation">)</span>
+    bfs<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<p>以上两种代码实现效果一样</p>
+<h5 id="2-代码实现"><a class="markdownIt-Anchor" href="#2-代码实现"></a> 2. 代码实现</h5>
+<blockquote>
+<p>既然了解了深度优先搜索和广度优先搜索，那么接下来我们就聊一聊我们代码的实现</p>
+</blockquote>
+<p>首先我先贴出我刚开始写的代码（通过深度优先搜索实现）</p>
+<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">get_data_by_dfs</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> deep<span class="token punctuation">,</span> father_id<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">global</span> book
+    message <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f'''
+        ---------------------开始爬取--------------------
+        当前爬取的节点:\t</span><span class="token interpolation"><span class="token punctuation">&#123;</span>father_id<span class="token punctuation">&#125;</span></span><span class="token string">
+        当前爬取的深度:\t</span><span class="token interpolation"><span class="token punctuation">&#123;</span>deep<span class="token punctuation">&#125;</span></span><span class="token string">
+        -------------------------------------------------
+        '''</span></span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span>
+
+    temp_url <span class="token operator">=</span> url<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>      <span class="token comment"># 爬取地址处理，方便下一层地址的拼接</span>
+
+    <span class="token keyword">if</span> deep <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
+        temp_data <span class="token operator">=</span> fetch_province_list<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">)</span>
+        <span class="token keyword">for</span> item <span class="token keyword">in</span> temp_data<span class="token punctuation">:</span>
+            <span class="token comment"># print(item)</span>
+            book<span class="token punctuation">[</span><span class="token string">"province"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> item<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> item<span class="token punctuation">[</span><span class="token string">'url'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+            cur_url <span class="token operator">=</span> temp_url <span class="token operator">+</span> <span class="token punctuation">[</span>item<span class="token punctuation">[</span><span class="token string">'url'</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+            cur_url <span class="token operator">=</span> <span class="token string">"/"</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>cur_url<span class="token punctuation">)</span>     <span class="token comment"># url地址拼接</span>
+            get_data_by_dfs<span class="token punctuation">(</span>cur_url<span class="token punctuation">,</span> deep<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> father_id<span class="token operator">=</span>item<span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token keyword">elif</span> <span class="token number">1</span> <span class="token operator">&lt;</span> deep <span class="token operator">&lt;=</span> <span class="token number">4</span><span class="token punctuation">:</span>
+        temp_data <span class="token operator">=</span> fetch_district_list<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">,</span> deep<span class="token operator">=</span>deep<span class="token punctuation">)</span>
+        <span class="token keyword">for</span> item <span class="token keyword">in</span> temp_data<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> deep <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">:</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+                book<span class="token punctuation">[</span><span class="token string">"municipality"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>
+                    <span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> item<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> item<span class="token punctuation">[</span><span class="token string">'url'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> father_id<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token comment"># time.sleep(60)</span>
+            <span class="token keyword">elif</span> deep <span class="token operator">==</span> <span class="token number">3</span><span class="token punctuation">:</span>
+                book<span class="token punctuation">[</span><span class="token string">"district"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>
+                    <span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> item<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> item<span class="token punctuation">[</span><span class="token string">'url'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> father_id<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token comment"># time.sleep(30)</span>
+            <span class="token keyword">elif</span> deep <span class="token operator">==</span> <span class="token number">4</span><span class="token punctuation">:</span>
+                book<span class="token punctuation">[</span><span class="token string">"township"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>
+                    <span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> item<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> item<span class="token punctuation">[</span><span class="token string">'url'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> father_id<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token comment"># time.sleep(10)</span>
+
+            cur_url <span class="token operator">=</span> temp_url <span class="token operator">+</span> <span class="token punctuation">[</span>item<span class="token punctuation">[</span><span class="token string">'url'</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+            cur_url <span class="token operator">=</span> <span class="token string">"/"</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>cur_url<span class="token punctuation">)</span>     <span class="token comment"># url地址拼接</span>
+            get_data_by_dfs<span class="token punctuation">(</span>cur_url<span class="token punctuation">,</span> deep<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> father_id<span class="token operator">=</span>item<span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">elif</span> deep <span class="token operator">==</span> <span class="token number">5</span><span class="token punctuation">:</span>
+        temp_data <span class="token operator">=</span> fetch_village_list<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">)</span>
+        <span class="token keyword">for</span> item <span class="token keyword">in</span> temp_data<span class="token punctuation">:</span>
+            <span class="token comment"># print(item)</span>
+            book<span class="token punctuation">[</span><span class="token string">"village"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>
+                <span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> item<span class="token punctuation">[</span><span class="token string">'city_id'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> item<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> father_id<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    message <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f'''
+        ---------------------爬取结束---------------------
+        当前爬取的节点:\t</span><span class="token interpolation"><span class="token punctuation">&#123;</span>father_id<span class="token punctuation">&#125;</span></span><span class="token string">
+        当前爬取的深度:\t</span><span class="token interpolation"><span class="token punctuation">&#123;</span>deep<span class="token punctuation">&#125;</span></span><span class="token string">
+        -------------------------------------------------
+        '''</span></span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<p>通过运行我发现在爬取大量数据的时候程序会出现各种各样的错误，如果我们在程序跑了几个小时后突然因为异常而退出，那么我们下次爬虫的时候就要从头开始，这会大量的消耗我们的时间。为了解决这个问题，考虑能不能将我们运行时产生的数据储存起来，然后再下次运行时调用上次运行结束时的数据。但是在这个递归的程序之中不太容易储存运行数据，所以就有了后面的版本，通过广搜的方法来运行程序。</p>
+<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">get_data_by_bfs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">global</span> book
+    queue <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token builtin">file</span> <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'data.json'</span><span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span>
+    text <span class="token operator">=</span> <span class="token builtin">file</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token builtin">file</span><span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    data <span class="token operator">=</span> json<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>text<span class="token punctuation">)</span>
+    <span class="token keyword">for</span> item <span class="token keyword">in</span> data<span class="token punctuation">[</span><span class="token string">'data'</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        queue<span class="token punctuation">.</span>append<span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+    <span class="token keyword">while</span> queue<span class="token punctuation">:</span>
+        temp_data <span class="token operator">=</span> queue<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+        queue<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>temp_data<span class="token punctuation">)</span>
+        father_id <span class="token operator">=</span> temp_data<span class="token punctuation">[</span><span class="token string">'father_id'</span><span class="token punctuation">]</span>
+        deep <span class="token operator">=</span> temp_data<span class="token punctuation">[</span><span class="token string">'deep'</span><span class="token punctuation">]</span>
+        url <span class="token operator">=</span> temp_data<span class="token punctuation">[</span><span class="token string">'url'</span><span class="token punctuation">]</span>
+        temp_url <span class="token operator">=</span> url<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+        message <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f'''
+            ---------------------开始爬取--------------------
+            当前爬取的节点:\t</span><span class="token interpolation"><span class="token punctuation">&#123;</span>father_id<span class="token punctuation">&#125;</span></span><span class="token string">
+            当前爬取的地址:\t</span><span class="token interpolation"><span class="token punctuation">&#123;</span>url<span class="token punctuation">&#125;</span></span><span class="token string">
+            当前爬取的深度:\t</span><span class="token interpolation"><span class="token punctuation">&#123;</span>deep<span class="token punctuation">&#125;</span></span><span class="token string">
+            -------------------------------------------------
+            '''</span></span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> deep <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
+            address <span class="token operator">=</span> fetch_province_list<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">)</span>
+            <span class="token keyword">for</span> item <span class="token keyword">in</span> address<span class="token punctuation">:</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+                book<span class="token punctuation">[</span><span class="token string">"province"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>
+                    <span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> item<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> item<span class="token punctuation">[</span><span class="token string">'url'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                cur_url <span class="token operator">=</span> temp_url <span class="token operator">+</span> <span class="token punctuation">[</span>item<span class="token punctuation">[</span><span class="token string">'url'</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+                cur_url <span class="token operator">=</span> <span class="token string">"/"</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>cur_url<span class="token punctuation">)</span>
+                queue<span class="token punctuation">.</span>append<span class="token punctuation">(</span>
+                    <span class="token punctuation">&#123;</span><span class="token string">"father_id"</span><span class="token punctuation">:</span> item<span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">"deep"</span><span class="token punctuation">:</span> deep<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"url"</span><span class="token punctuation">:</span> cur_url<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+        <span class="token keyword">elif</span> <span class="token number">2</span> <span class="token operator">&lt;=</span> deep <span class="token operator">&lt;=</span> <span class="token number">4</span><span class="token punctuation">:</span>
+            address <span class="token operator">=</span> fetch_district_list<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">,</span> deep<span class="token operator">=</span>deep<span class="token punctuation">)</span>
+            <span class="token keyword">for</span> item <span class="token keyword">in</span> address<span class="token punctuation">:</span>
+                <span class="token keyword">if</span> deep <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">:</span>
+                    book<span class="token punctuation">[</span><span class="token string">"municipality"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>
+                        <span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> item<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> item<span class="token punctuation">[</span><span class="token string">'url'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> father_id<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token keyword">elif</span> deep <span class="token operator">==</span> <span class="token number">3</span><span class="token punctuation">:</span>
+                    book<span class="token punctuation">[</span><span class="token string">"district"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>
+                        <span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> item<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> item<span class="token punctuation">[</span><span class="token string">'url'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> father_id<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token keyword">elif</span> deep <span class="token operator">==</span> <span class="token number">4</span><span class="token punctuation">:</span>
+                    book<span class="token punctuation">[</span><span class="token string">"township"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>
+                        <span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> item<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> item<span class="token punctuation">[</span><span class="token string">'url'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> father_id<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                cur_url <span class="token operator">=</span> temp_url <span class="token operator">+</span> <span class="token punctuation">[</span>item<span class="token punctuation">[</span><span class="token string">'url'</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+                cur_url <span class="token operator">=</span> <span class="token string">"/"</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>cur_url<span class="token punctuation">)</span>
+                queue<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token string">"father_id"</span><span class="token punctuation">:</span> item<span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                              <span class="token string">"deep"</span><span class="token punctuation">:</span> deep<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"url"</span><span class="token punctuation">:</span> cur_url<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+                <span class="token comment"># print(item)</span>
+                message <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f'''
+                    ---------------------爬取中--------------------
+                    当前爬取的节点:\t</span><span class="token interpolation"><span class="token punctuation">&#123;</span>item<span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span></span><span class="token string">
+                    当前爬取的名称:\t</span><span class="token interpolation"><span class="token punctuation">&#123;</span>item<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span></span><span class="token string">
+                    当前爬取的深度:\t</span><span class="token interpolation"><span class="token punctuation">&#123;</span>deep<span class="token punctuation">&#125;</span></span><span class="token string">
+                    -------------------------------------------------
+                    '''</span></span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span>
+        <span class="token keyword">elif</span> deep <span class="token operator">==</span> <span class="token number">5</span><span class="token punctuation">:</span>
+            address <span class="token operator">=</span> fetch_village_list<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">)</span>
+            <span class="token keyword">for</span> item <span class="token keyword">in</span> address<span class="token punctuation">:</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+                book<span class="token punctuation">[</span><span class="token string">"village"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>
+                    <span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> item<span class="token punctuation">[</span><span class="token string">'city_id'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> item<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> father_id<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        message <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f'''
+            ---------------------爬取结束--------------------
+            当前爬取的节点:\t</span><span class="token interpolation"><span class="token punctuation">&#123;</span>father_id<span class="token punctuation">&#125;</span></span><span class="token string">
+            当前爬取的地址:\t</span><span class="token interpolation"><span class="token punctuation">&#123;</span>url<span class="token punctuation">&#125;</span></span><span class="token string">
+            当前爬取的深度:\t</span><span class="token interpolation"><span class="token punctuation">&#123;</span>deep<span class="token punctuation">&#125;</span></span><span class="token string">
+            -------------------------------------------------
+            '''</span></span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span>
+        book<span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token string">"address.xlsx"</span><span class="token punctuation">)</span>
+        content <span class="token operator">=</span> json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token string">"data"</span><span class="token punctuation">:</span> queue<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+        <span class="token builtin">file</span> <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'data.json'</span><span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">)</span>
+        <span class="token builtin">file</span><span class="token punctuation">.</span>write<span class="token punctuation">(</span>content<span class="token punctuation">)</span>
+        <span class="token builtin">file</span><span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<p>相信有过爬虫经历的同学都知道，爬虫爬的多了会被禁用，导致在一段时间无法进入到那个网站，那么在下一篇我们来聊聊我们如何优化我们的爬虫代码</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Python/">Python</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Python/%E7%88%AC%E8%99%AB/">爬虫</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Python/">Python</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%88%AC%E8%99%AB/">爬虫</a>
+                    
+                  </div>
+                
+              </div>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/11/11/Python/%E7%88%AC%E8%99%AB/%E5%8F%AF%E6%96%AD%E7%82%B9%E7%88%AC%E8%99%AB%E5%AE%9E%E7%8E%B0%E4%B8%80/">
+                        <span class="hidden-mobile">可断点爬虫实现（一）</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"XFEf335X2GvXbf3lsXBVp0mL-gzGzoHsz","appKey":"qIcEeNldPCNzbVSpr6cvRSmR","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"https://xfef335x.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":true},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://little-soul.github.io/" target="_blank" rel="nofollow noopener"><span>LiSoul</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/LIttle-soul/" target="_blank" rel="nofollow noopener"><span>github</span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+    
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- KaTeX -->
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.20/dist/katex.min.css" />
+  
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?b7dd1be358088afd106bff2e9d064a6b";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/caidai.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/timeDate.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/yinghua.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/love.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+<!-- hexo injector body_end start --><script
+        src='https://cdn.bootcdn.net/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js'
+        color='183,20,147'
+        pointColor='160,0,100'
+        opacity='0.8'
+        zIndex='-1'
+        count='500'
+    ></script><!-- hexo injector body_end end --></body>
+</html>
